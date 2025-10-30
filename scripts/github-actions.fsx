@@ -52,10 +52,6 @@ let workflows = [
                 run = "dotnet fsi ./scripts/github-actions.fsx verify"
             )
         ]
-
-        job "verify-encoding" [
-
-        ]
     ]
 ]
 
