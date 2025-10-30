@@ -3,6 +3,10 @@
   <Folder Name="/.github/workflows/">
     <File Path=".github/workflows/main.yml" />
   </Folder>
+  <Folder Name="/data/">
+    <File Path="data/tags.json" />
+    <File Path="data/tags.json.license" />
+  </Folder>
   <Folder Name="/LICENSES/">
     <File Path="LICENSES/BSL-1.0.txt" />
   </Folder>
