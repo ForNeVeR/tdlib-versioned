@@ -36,6 +36,18 @@ let workflows = [
             )
         ]
 
+        job "check-licenses" [
+            runsOn "ubuntu-24.04"
+            step(
+                name = "Check out the sources",
+                usesSpec = Auto "actions/checkout"
+            )
+            step(
+                name = "REUSE license check",
+                usesSpec = Auto "fsfe/reuse-action"
+            )
+        ]
+
         job "check-workflows" [
             runsOn "ubuntu-22.04"
 

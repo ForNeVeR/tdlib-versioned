@@ -23,6 +23,13 @@ jobs:
     - name: Verify encoding
       shell: pwsh
       run: Install-Module VerifyEncoding -Repository PSGallery -RequiredVersion 2.2.1 -Force && Test-Encoding
+  check-licenses:
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Check out the sources
+      uses: actions/checkout@v4
+    - name: REUSE license check
+      uses: fsfe/reuse-action@v6
   check-workflows:
     runs-on: ubuntu-22.04
     env:
