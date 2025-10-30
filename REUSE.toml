@@ -1,0 +1,10 @@
+version = 1
+SPDX-PackageName = "tdlib-versioned"
+SPDX-PackageSupplier = "Friedrich von Never <friedrich@fornever.me>"
+SPDX-PackageDownloadLocation = "https://github.com/ForNeVeR/tdlib-versioned"
+
+[[annotations]]
+path = ".idea/**/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2025 Friedrich von Never <friedrich@fornever.me>"
+SPDX-License-Identifier = "BSL-1.0"
