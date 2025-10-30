@@ -24,6 +24,10 @@ Currently, since the main TDLib repository has a `VERSION` field in their build 
 
 Currently, any commit pushed to the upstream TDLib that increments the version number in the `CMakeLists.txt` is considered as **the commit introducing this new version** and should be tagged. Any conflicts will be resolved on a case-by-case-basis.
 
+Documentation
+-------------
+- [Contributor Guide][docs.contributing]
+
 License
 -------
 The project is distributed under the terms of [the Boost Software License 1.0][docs.license].
@@ -31,6 +35,7 @@ The project is distributed under the terms of [the Boost Software License 1.0][d
 The license indication in the project's sources is compliant with the [REUSE specification v3.3][reuse.spec].
 
 [andivionian-status-classifier]: https://andivionian.fornever.me/v1/#status-zero-
+[docs.contributing]: CONTRIBUTING.md
 [docs.license]: LICENSE.txt
 [reuse.spec]: https://reuse.software/spec-3.3/
 [reuse]: https://reuse.software/

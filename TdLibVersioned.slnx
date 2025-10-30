@@ -1,12 +1,22 @@
 <Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/main.yml" />
+  </Folder>
   <Folder Name="/LICENSES/">
     <File Path="LICENSES/BSL-1.0.txt" />
+  </Folder>
+  <Folder Name="/scripts/">
+    <File Path="scripts/github-actions.fsx" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="global.json" />
     <File Path="LICENSE.txt" />
     <File Path="README.md" />
+    <File Path="renovate.json" />
     <File Path="REUSE.toml" />
     <File Path="TdLibVersioned.sln.DotSettings" />
     <File Path="TdLibVersioned.sln.DotSettings.license" />
