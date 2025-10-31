@@ -31,7 +31,7 @@ jobs:
     - name: REUSE license check
       uses: fsfe/reuse-action@v6
   check-workflows:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
       DOTNET_NOLOGO: 1
