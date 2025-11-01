@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Friedrich von Never <friedrich@fornever.me>
+#
+# SPDX-License-Identifier: BSL-1.0
+
 param (
     $RepositoryRoot = "$PSScriptRoot/..",
     $UpstreamGitRemote = 'https://github.com/tdlib/td.git',
