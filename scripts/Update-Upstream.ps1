@@ -1,4 +1,4 @@
-﻿param (
+param (
     $RepositoryRoot = "$PSScriptRoot/..",
     $UpstreamGitRemote = 'https://github.com/tdlib/td.git',
     $UpstreamRemoteName = 'upstream',
