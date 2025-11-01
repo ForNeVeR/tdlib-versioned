@@ -13,6 +13,16 @@ open Generaptor.GitHubActions
 open type Generaptor.GitHubActions.Commands
 
 let workflows = [
+    let linuxSourceJob name body =
+        job name [
+            runsOn "ubuntu-24.04"
+            step(
+                name = "Check out the sources",
+                usesSpec = Auto "actions/checkout"
+            )
+            yield! body
+        ]
+
     workflow "main" [
         header licenseHeader
         name "Main"
@@ -23,12 +33,7 @@ let workflows = [
         onSchedule(day = DayOfWeek.Saturday)
         onWorkflowDispatch
 
-        job "check-encoding" [
-            runsOn "ubuntu-24.04"
-            step(
-                name = "Check out the sources",
-                usesSpec = Auto "actions/checkout"
-            )
+        linuxSourceJob "check-encoding" [
             step(
                 name = "Verify encoding",
                 shell = "pwsh",
@@ -36,27 +41,17 @@ let workflows = [
             )
         ]
 
-        job "check-licenses" [
-            runsOn "ubuntu-24.04"
-            step(
-                name = "Check out the sources",
-                usesSpec = Auto "actions/checkout"
-            )
+        linuxSourceJob "check-licenses" [
             step(
                 name = "REUSE license check",
                 usesSpec = Auto "fsfe/reuse-action"
             )
         ]
 
-        job "check-workflows" [
-            runsOn "ubuntu-24.04"
-
+        linuxSourceJob "check-workflows" [
             setEnv "DOTNET_CLI_TELEMETRY_OPTOUT" "1"
             setEnv "DOTNET_NOLOGO" "1"
             setEnv "NUGET_PACKAGES" "${{ github.workspace }}/.github/nuget-packages"
-            step(
-                usesSpec = Auto "actions/checkout"
-            )
             step(
                 usesSpec = Auto "actions/setup-dotnet"
             )
