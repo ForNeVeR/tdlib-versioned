@@ -13,6 +13,19 @@ open Generaptor.GitHubActions
 open type Generaptor.GitHubActions.Commands
 
 let workflows = [
+    let workflow (displayName: string) body =
+        workflow (displayName.ToLower()) [
+            header licenseHeader
+            name displayName
+
+            let mainBranch = "main"
+            onPushTo mainBranch
+            onPullRequestTo mainBranch
+            onWorkflowDispatch
+
+            yield! body
+        ]
+
     let linuxSourceJob name body =
         job name [
             runsOn "ubuntu-24.04"
@@ -23,22 +36,25 @@ let workflows = [
             yield! body
         ]
 
-    workflow "main" [
-        header licenseHeader
-        name "Main"
+    let powerShell name command =
+        step(
+            name = name,
+            shell = "pwsh",
+            run = command
+        )
 
-        let mainBranch = "main"
-        onPushTo mainBranch
-        onPullRequestTo mainBranch
+    let withCondition condition = function
+        | AddStep ({ Condition = None } as step) ->
+            AddStep { step with Condition = Some condition }
+        | AddStep step -> failwith $"Step {step} has a condition already: {step.Condition}."
+        | x -> x
+
+    workflow "Main" [
         onSchedule(day = DayOfWeek.Saturday)
-        onWorkflowDispatch
 
         linuxSourceJob "check-encoding" [
-            step(
-                name = "Verify encoding",
-                shell = "pwsh",
-                run = "Install-Module VerifyEncoding -Repository PSGallery -RequiredVersion 2.2.1 -Force && Test-Encoding"
-            )
+            powerShell "Verify encoding"
+                "Install-Module VerifyEncoding -Repository PSGallery -RequiredVersion 2.2.1 -Force && Test-Encoding"
         ]
 
         linuxSourceJob "check-licenses" [
@@ -53,11 +69,23 @@ let workflows = [
             setEnv "DOTNET_NOLOGO" "1"
             setEnv "NUGET_PACKAGES" "${{ github.workspace }}/.github/nuget-packages"
             step(
+                name = "Set up .NET SDK",
                 usesSpec = Auto "actions/setup-dotnet"
             )
-            step(
-                run = "dotnet fsi ./scripts/github-actions.fsx verify"
-            )
+            powerShell "Verify workflows"
+                "dotnet fsi ./scripts/github-actions.fsx verify"
+        ]
+    ]
+
+    workflow "maintenance" [
+        onSchedule(cron = "0 0 * * *") // every day
+        linuxSourceJob "clone-upstream" [
+            powerShell "Clone upstream repository"
+                "./scripts/Update-Upstream.ps1"
+
+            powerShell "Push new commits"
+                "git push origin upstream"
+            |> withCondition "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'"
         ]
     ]
 ]

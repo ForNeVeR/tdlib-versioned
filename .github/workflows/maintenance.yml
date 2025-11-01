@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2025 Friedrich von Never <friedrich@fornever.me>
+#
+# SPDX-License-Identifier: BSL-1.0
+
+# This file is auto-generated.
+name: maintenance
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+  schedule:
+  - cron: 0 0 * * *
+  workflow_dispatch: 
+jobs:
+  clone-upstream:
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Check out the sources
+      uses: actions/checkout@v5
+    - name: Clone upstream repository
+      shell: pwsh
+      run: ./scripts/Update-Upstream.ps1
+    - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      name: Push new commits
+      shell: pwsh
+      run: git push origin upstream

@@ -37,6 +37,10 @@ jobs:
       DOTNET_NOLOGO: 1
       NUGET_PACKAGES: ${{ github.workspace }}/.github/nuget-packages
     steps:
-    - uses: actions/checkout@v5
-    - uses: actions/setup-dotnet@v5
-    - run: dotnet fsi ./scripts/github-actions.fsx verify
+    - name: Check out the sources
+      uses: actions/checkout@v5
+    - name: Set up .NET SDK
+      uses: actions/setup-dotnet@v5
+    - name: Verify workflows
+      shell: pwsh
+      run: dotnet fsi ./scripts/github-actions.fsx verify
