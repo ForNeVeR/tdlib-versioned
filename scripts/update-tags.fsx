@@ -80,7 +80,7 @@ for tag in tagsToAdd do
     printfn $"Executing git tag {tag} {commit}…"
     if not whatIf then
         let command = Command.Run("git", "tag", tag, commit).Result
-        if not command.Success then failwithf $"Cannot create tag, exit code {command.ExitCode}."
+        if not command.Success then failwithf $"Cannot create tag, exit code {command.ExitCode}. Standard error: \n{command.StandardError}"
 
 if tagsToAdd.Length > 0 then
     if whatIf then
