@@ -50,6 +50,7 @@ let workflows = [
         | x -> x
 
     let manualOrScheduleCondition = "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'"
+    let withManualOrScheduleCondition = withCondition manualOrScheduleCondition
 
     workflow "Main" [
         onSchedule(day = DayOfWeek.Saturday)
@@ -87,8 +88,6 @@ let workflows = [
     ]
 
     workflow "Maintenance" [
-        let withManualOrScheduleCondition = withCondition manualOrScheduleCondition
-
         onSchedule(cron = "0 0 * * *") // every day
 
         linuxSourceJob "clone-upstream" [
@@ -119,6 +118,25 @@ let workflows = [
                     "commit-message", "${{ steps.extract-metadata.outputs.commit-message }}"
                     "body", "${{ steps.extract-metadata.outputs.body }}"
                 ]
+            )
+            |> withManualOrScheduleCondition
+        ]
+    ]
+
+    workflow "Release" [
+        onPushTags "v*"
+
+        job "release" [
+            step(
+                id = "version",
+                name = "Read version from Git ref",
+                shell = "pwsh",
+                run = "echo \"version=$(if ($env:GITHUB_REF.StartsWith('refs/tags/v')) { $env:GITHUB_REF -replace '^refs/tags/v', '' } else { 'next' })\" >> $env:GITHUB_OUTPUT"
+            )
+
+            step(
+                name = "Prepare a release",
+                usesSpec = Auto "softprops/action-gh-release"
             )
             |> withManualOrScheduleCondition
         ]

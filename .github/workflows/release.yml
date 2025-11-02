@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2025 Friedrich von Never <friedrich@fornever.me>
+#
+# SPDX-License-Identifier: BSL-1.0
+
+# This file is auto-generated.
+name: Release
+on:
+  push:
+    branches:
+    - main
+    tags:
+    - v*
+  pull_request:
+    branches:
+    - main
+  workflow_dispatch: 
+jobs:
+  release:
+    steps:
+    - id: version
+      name: Read version from Git ref
+      shell: pwsh
+      run: echo "version=$(if ($env:GITHUB_REF.StartsWith('refs/tags/v')) { $env:GITHUB_REF -replace '^refs/tags/v', '' } else { 'next' })" >> $env:GITHUB_OUTPUT
+    - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      name: Prepare a release
+      uses: softprops/action-gh-release@v2
