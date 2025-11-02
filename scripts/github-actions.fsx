@@ -84,7 +84,7 @@ let workflows = [
                 "./scripts/Update-Upstream.ps1"
 
             powerShell "Push new commits"
-                "git push origin upstream"
+                "git push origin tdlib"
             |> withCondition "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'"
         ]
     ]

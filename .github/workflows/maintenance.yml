@@ -26,4 +26,4 @@ jobs:
     - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
       name: Push new commits
       shell: pwsh
-      run: git push origin upstream
+      run: git push origin tdlib
