@@ -113,7 +113,14 @@ let writeResults() =
         | Some path -> File.OpenWrite path
 
     use writer = new StreamWriter(outputStream)
-    writer.Write $"title={summary}\n"
-    writer.Write $"commit-message={commitMessage}\n"
-    writer.Write $"body={detailedDescription}\n"
+    let serializeParameter key (value: string) =
+        if value.Contains("\n") then
+            let delimiter = Guid.NewGuid()
+            writer.Write $"{key}<<{delimiter}\n{value}\n{delimiter}\n"
+        else
+            writer.Write $"{key}={value}\n"
+    serializeParameter "title" summary
+    serializeParameter "commit-message" commitMessage
+    serializeParameter "body" detailedDescription
+
 writeResults()
