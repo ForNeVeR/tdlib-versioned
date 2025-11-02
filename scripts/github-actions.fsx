@@ -6,8 +6,8 @@ let licenseHeader = """
 # This file is auto-generated.""".Trim()
 
 #r "nuget: Generaptor, 1.9.0"
-open System
 
+open System
 open Generaptor
 open Generaptor.GitHubActions
 open type Generaptor.GitHubActions.Commands
@@ -49,6 +49,8 @@ let workflows = [
         | AddStep step -> failwith $"Step {step} has a condition already: {step.Condition}."
         | x -> x
 
+    let manualOrScheduleCondition = "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'"
+
     workflow "Main" [
         onSchedule(day = DayOfWeek.Saturday)
 
@@ -75,12 +77,20 @@ let workflows = [
             powerShell "Verify workflows"
                 "dotnet fsi ./scripts/github-actions.fsx verify"
         ]
+
+        linuxSourceJob "push-tags" [
+            jobPermission(PermissionKind.Contents, AccessKind.Write)
+
+            powerShell "Prepare tags"
+                ("./scripts/update-tags.fsx --what-if ${{ " + manualOrScheduleCondition + " }}")
+        ]
     ]
 
     workflow "Maintenance" [
-        let withManualOrScheduleCondition = withCondition "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'"
+        let withManualOrScheduleCondition = withCondition manualOrScheduleCondition
 
         onSchedule(cron = "0 0 * * *") // every day
+
         linuxSourceJob "clone-upstream" [
             jobPermission(PermissionKind.Contents, AccessKind.Write)
             jobPermission(PermissionKind.PullRequests, AccessKind.Write)

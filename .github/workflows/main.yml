@@ -44,3 +44,13 @@ jobs:
     - name: Verify workflows
       shell: pwsh
       run: dotnet fsi ./scripts/github-actions.fsx verify
+  push-tags:
+    permissions:
+      contents: write
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Check out the sources
+      uses: actions/checkout@v5
+    - name: Prepare tags
+      shell: pwsh
+      run: ./scripts/update-tags.fsx --what-if ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
