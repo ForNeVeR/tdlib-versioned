@@ -16,7 +16,7 @@ let command =
         "ls-remote", "--tags", upstreamRepoRemote
     ).Result
 if not command.Success then
-    eprintfn $"git ls-remote failed with exit code {command.ExitCode}."
+    failwithf $"git ls-remote failed with exit code {command.ExitCode}."
 
 let extractTagName(ref: string) =
     let prefix = "refs/tags/"
