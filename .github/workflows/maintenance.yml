@@ -29,3 +29,16 @@ jobs:
       name: Push new commits
       shell: pwsh
       run: git push origin tdlib
+    - id: extract-metadata
+      name: Extract metadata
+      shell: pwsh
+      run: dotnet fsi ./scripts/extract-metadata.fsx
+    - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      name: Create a pull request
+      uses: peter-evans/create-pull-request@v7
+      with:
+        author: TdLibVersioned automation <friedrich@fornever.me>
+        body: ${{ steps.extract-metadata.body }}
+        branch: new-metadata
+        commit-message: ${{ steps.extract-metadata.commit-message }}
+        title: ${{ steps.extract-metadata.title }}

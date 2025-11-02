@@ -5,13 +5,14 @@
     <File Path=".github/workflows/maintenance.yml" />
   </Folder>
   <Folder Name="/data/">
-    <File Path="data/tags.json" />
-    <File Path="data/tags.json.license" />
+    <File Path="data/releases.json" />
+    <File Path="data/releases.json.license" />
   </Folder>
   <Folder Name="/LICENSES/">
     <File Path="LICENSES/BSL-1.0.txt" />
   </Folder>
   <Folder Name="/scripts/">
+    <File Path="scripts/extract-metadata.fsx" />
     <File Path="scripts/github-actions.fsx" />
     <File Path="scripts/Update-Upstream.ps1" />
   </Folder>

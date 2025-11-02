@@ -78,6 +78,8 @@ let workflows = [
     ]
 
     workflow "Maintenance" [
+        let withManualOrScheduleCondition = withCondition "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'"
+
         workflowPermission(PermissionKind.Contents, AccessKind.Write)
         onSchedule(cron = "0 0 * * *") // every day
         linuxSourceJob "clone-upstream" [
@@ -86,7 +88,27 @@ let workflows = [
 
             powerShell "Push new commits"
                 "git push origin tdlib"
-            |> withCondition "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'"
+            |> withManualOrScheduleCondition
+
+            step(
+                id = "extract-metadata",
+                name = "Extract metadata",
+                shell = "pwsh",
+                run = "dotnet fsi ./scripts/extract-metadata.fsx"
+            )
+
+            step(
+                name = "Create a pull request",
+                usesSpec = Auto "peter-evans/create-pull-request",
+                options = Map.ofList [
+                    "branch", "new-metadata"
+                    "author", "TdLibVersioned automation <friedrich@fornever.me>"
+                    "title", "${{ steps.extract-metadata.title }}"
+                    "commit-message", "${{ steps.extract-metadata.commit-message }}"
+                    "body", "${{ steps.extract-metadata.body }}"
+                ]
+            )
+            |> withManualOrScheduleCondition
         ]
     ]
 ]
