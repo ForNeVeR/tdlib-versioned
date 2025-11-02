@@ -9,7 +9,7 @@ on:
     branches:
     - main
     tags:
-    - v*
+    - tdlib/*
   pull_request:
     branches:
     - main

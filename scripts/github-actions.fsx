@@ -124,7 +124,7 @@ let workflows = [
     ]
 
     workflow "Release" [
-        onPushTags "v*"
+        onPushTags "tdlib/*"
 
         job "release" [
             runsOn "ubuntu-24.04"
