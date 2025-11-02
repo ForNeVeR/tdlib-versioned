@@ -103,9 +103,9 @@ let workflows = [
                 options = Map.ofList [
                     "branch", "new-metadata"
                     "author", "TdLibVersioned automation <friedrich@fornever.me>"
-                    "title", "${{ steps.extract-metadata.title }}"
-                    "commit-message", "${{ steps.extract-metadata.commit-message }}"
-                    "body", "${{ steps.extract-metadata.body }}"
+                    "title", "${{ steps.extract-metadata.outputs.title }}"
+                    "commit-message", "${{ steps.extract-metadata.outputs.commit-message }}"
+                    "body", "${{ steps.extract-metadata.outputs.body }}"
                 ]
             )
             |> withManualOrScheduleCondition
