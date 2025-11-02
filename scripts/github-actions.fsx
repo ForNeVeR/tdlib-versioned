@@ -49,8 +49,7 @@ let workflows = [
         | AddStep step -> failwith $"Step {step} has a condition already: {step.Condition}."
         | x -> x
 
-    let manualOrScheduleCondition = "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'"
-    let withManualOrScheduleCondition = withCondition manualOrScheduleCondition
+    let withManualOrScheduleCondition = withCondition "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'"
 
     workflow "Main" [
         onSchedule(day = DayOfWeek.Saturday)
@@ -83,7 +82,7 @@ let workflows = [
             jobPermission(PermissionKind.Contents, AccessKind.Write)
 
             powerShell "Prepare tags"
-                ("dotnet fsi ./scripts/update-tags.fsx --what-if ${{ !(" + manualOrScheduleCondition + ") }}")
+                "dotnet fsi ./scripts/update-tags.fsx --what-if ${{ github.ref != 'refs/heads/main' }}"
         ]
     ]
 
