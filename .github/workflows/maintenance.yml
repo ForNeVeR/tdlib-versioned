@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: BSL-1.0
 
 # This file is auto-generated.
-name: maintenance
+name: Maintenance
 on:
   push:
     branches:
