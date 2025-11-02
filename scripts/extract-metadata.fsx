@@ -43,10 +43,10 @@ open System.IO
 
 let releases =
     tags
-    |> Seq.sort
     |> Seq.map(fun (commit, tag) ->
         { Tag = tag; Commit = commit }
     )
+    |> Seq.sortBy _.Tag
     |> Seq.toArray
 
 let releasesJsonPath = Path.Combine(__SOURCE_DIRECTORY__, "../data/releases.json")
