@@ -127,6 +127,8 @@ let workflows = [
         onPushTags "v*"
 
         job "release" [
+            runsOn "ubuntu-24.04"
+
             step(
                 id = "version",
                 name = "Read version from Git ref",
