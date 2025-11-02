@@ -18,6 +18,7 @@ jobs:
   clone-upstream:
     permissions:
       contents: write
+      pull-requests: write
     runs-on: ubuntu-24.04
     steps:
     - name: Check out the sources

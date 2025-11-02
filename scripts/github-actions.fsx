@@ -5,7 +5,7 @@ let licenseHeader = """
 
 # This file is auto-generated.""".Trim()
 
-#r "nuget: Generaptor, 1.8.0"
+#r "nuget: Generaptor, 1.9.0"
 open System
 
 open Generaptor
@@ -83,6 +83,7 @@ let workflows = [
         onSchedule(cron = "0 0 * * *") // every day
         linuxSourceJob "clone-upstream" [
             jobPermission(PermissionKind.Contents, AccessKind.Write)
+            jobPermission(PermissionKind.PullRequests, AccessKind.Write)
 
             powerShell "Clone upstream repository"
                 "./scripts/Update-Upstream.ps1"
