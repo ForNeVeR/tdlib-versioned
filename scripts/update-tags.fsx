@@ -45,7 +45,7 @@ let existingTags =
     |> Set.ofSeq
 
 let getRevisionForTag(tag: string) =
-    let command = Command.Run("git", "rev-parse").Result
+    let command = Command.Run("git", "rev-parse", tag).Result
     if not command.Success then
         failwithf $"git rev-parse failed with exit code {command.ExitCode}."
     command.StandardOutput.Trim()
