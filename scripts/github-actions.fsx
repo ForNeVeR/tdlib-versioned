@@ -78,6 +78,7 @@ let workflows = [
     ]
 
     workflow "Maintenance" [
+        workflowPermission(PermissionKind.Contents, AccessKind.Write)
         onSchedule(cron = "0 0 * * *") // every day
         linuxSourceJob "clone-upstream" [
             powerShell "Clone upstream repository"
