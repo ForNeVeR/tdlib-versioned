@@ -53,4 +53,4 @@ jobs:
       uses: actions/checkout@v5
     - name: Prepare tags
       shell: pwsh
-      run: ./scripts/update-tags.fsx --what-if ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+      run: dotnet fsi ./scripts/update-tags.fsx --what-if ${{ !(github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}

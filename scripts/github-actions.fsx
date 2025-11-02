@@ -83,7 +83,7 @@ let workflows = [
             jobPermission(PermissionKind.Contents, AccessKind.Write)
 
             powerShell "Prepare tags"
-                ("./scripts/update-tags.fsx --what-if ${{ " + manualOrScheduleCondition + " }}")
+                ("dotnet fsi ./scripts/update-tags.fsx --what-if ${{ !(" + manualOrScheduleCondition + ") }}")
         ]
     ]
 
