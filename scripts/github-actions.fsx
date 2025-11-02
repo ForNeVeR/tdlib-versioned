@@ -80,9 +80,10 @@ let workflows = [
     workflow "Maintenance" [
         let withManualOrScheduleCondition = withCondition "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'"
 
-        workflowPermission(PermissionKind.Contents, AccessKind.Write)
         onSchedule(cron = "0 0 * * *") // every day
         linuxSourceJob "clone-upstream" [
+            jobPermission(PermissionKind.Contents, AccessKind.Write)
+
             powerShell "Clone upstream repository"
                 "./scripts/Update-Upstream.ps1"
 

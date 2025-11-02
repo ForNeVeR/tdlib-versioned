@@ -14,10 +14,10 @@ on:
   schedule:
   - cron: 0 0 * * *
   workflow_dispatch: 
-permissions:
-  contents: write
 jobs:
   clone-upstream:
+    permissions:
+      contents: write
     runs-on: ubuntu-24.04
     steps:
     - name: Check out the sources
