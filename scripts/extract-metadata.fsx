@@ -46,7 +46,10 @@ let releases =
     |> Seq.map(fun (commit, tag) ->
         { Tag = tag; Commit = commit }
     )
-    |> Seq.sortBy _.Tag
+    |> Seq.sortBy(fun r ->
+        if not <| r.Tag.StartsWith "v" then failwithf $"Unexpected tag name: {r.Tag}."
+        Version.Parse(r.Tag.Substring 1)
+    )
     |> Seq.toArray
 
 let releasesJsonPath = Path.Combine(__SOURCE_DIRECTORY__, "../data/releases.json")
