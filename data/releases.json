@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "Tag": "v1.1.0",
+    "Commit": "19ef0361f9e4bf7e45e117f2fd12307629298d5e"
+  },
+  {
+    "Tag": "v1.4.0",
+    "Commit": "21dee3b1d923f3fdacc711b46ad102b1d0d1439b"
+  },
+  {
+    "Tag": "v1.6.0",
+    "Commit": "278c7acdec83c5ac17d8e1ed0bb2cacbcea62460"
+  },
+  {
+    "Tag": "v1.1.1",
+    "Commit": "6c706f45e7a73c936b9f2f267785092c8a73348f"
+  },
+  {
+    "Tag": "v1.0.0",
+    "Commit": "71d03f39c364367a8a7c51f783a41099297de826"
+  },
+  {
+    "Tag": "v1.3.0",
+    "Commit": "a9608ca379e1582552d7a123912aa9d68c2bb1ca"
+  },
+  {
+    "Tag": "v1.8.0",
+    "Commit": "b3ab664a18f8611f4dfcd3054717504271eeaa7a"
+  },
+  {
+    "Tag": "v1.5.0",
+    "Commit": "b6a483dc41dfe47f60d5b69df8258b956a28601c"
+  },
+  {
+    "Tag": "v1.2.0",
+    "Commit": "cfe4d9bdcee9305632eb228a46a95407d05b5c7a"
+  },
+  {
+    "Tag": "v1.7.0",
+    "Commit": "eb80924dad30af4e6d8385d058bb7e847174df5e"
+  }
+]
