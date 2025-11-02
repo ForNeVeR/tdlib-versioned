@@ -78,8 +78,16 @@ let workflows = [
                 "dotnet fsi ./scripts/github-actions.fsx verify"
         ]
 
-        linuxSourceJob "push-tags" [
+        job "push-tags" [
+            runsOn "ubuntu-24.04"
             jobPermission(PermissionKind.Contents, AccessKind.Write)
+            step(
+                name = "Check out the sources",
+                usesSpec = Auto "actions/checkout",
+                options = Map.ofList [
+                    "fetch-depth", "0"
+                ]
+            )
 
             powerShell "Prepare tags"
                 "dotnet fsi ./scripts/update-tags.fsx --what-if ${{ github.ref != 'refs/heads/main' }}"
