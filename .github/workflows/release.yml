@@ -8,20 +8,29 @@ on:
   push:
     branches:
     - main
-    tags:
-    - tdlib/*
   pull_request:
     branches:
     - main
+  schedule:
+  - cron: 0 0 * * *
   workflow_dispatch: 
 jobs:
   release:
+    permissions:
+      contents: write
     runs-on: ubuntu-24.04
     steps:
-    - id: version
-      name: Read version from Git ref
+    - name: Check out the sources
+      uses: actions/checkout@v5
+    - id: extract-release
+      name: Extract release information
       shell: pwsh
-      run: echo "version=$(if ($env:GITHUB_REF.StartsWith('refs/tags/v')) { $env:GITHUB_REF -replace '^refs/tags/v', '' } else { 'next' })" >> $env:GITHUB_OUTPUT
-    - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      run: dotnet fsi ./scripts/extract-release.fsx
+    - if: ${{ steps.extract-release.outputs.has-changes }}
       name: Prepare a release
       uses: softprops/action-gh-release@v2
+      with:
+        make_latest: ${{ steps.extract-release.outputs.make-latest }}
+        name: ${{ steps.extract-release.outputs.name }}
+        tag_name: ${{ steps.extract-release.outputs.tag-name }}
+        target_commitish: ${{ steps.extract-release.outputs.commit }}

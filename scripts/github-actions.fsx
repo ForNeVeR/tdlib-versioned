@@ -131,23 +131,29 @@ let workflows = [
     ]
 
     workflow "Release" [
-        onPushTags "tdlib/*"
+        onSchedule(cron = "0 0 * * *") // every day
 
-        job "release" [
-            runsOn "ubuntu-24.04"
+        linuxSourceJob "release" [
+            jobPermission(PermissionKind.Contents, AccessKind.Write)
 
             step(
-                id = "version",
-                name = "Read version from Git ref",
+                id = "extract-release",
+                name = "Extract release information",
                 shell = "pwsh",
-                run = "echo \"version=$(if ($env:GITHUB_REF.StartsWith('refs/tags/v')) { $env:GITHUB_REF -replace '^refs/tags/v', '' } else { 'next' })\" >> $env:GITHUB_OUTPUT"
+                run = "dotnet fsi ./scripts/extract-release.fsx"
             )
 
             step(
+                condition = "${{ steps.extract-release.outputs.has-changes }}",
                 name = "Prepare a release",
-                usesSpec = Auto "softprops/action-gh-release"
+                usesSpec = Auto "softprops/action-gh-release",
+                options = Map.ofList [
+                    "name", "${{ steps.extract-release.outputs.name }}"
+                    "tag_name", "${{ steps.extract-release.outputs.tag-name }}"
+                    "target_commitish", "${{ steps.extract-release.outputs.commit }}"
+                    "make_latest", "${{ steps.extract-release.outputs.make-latest }}"
+                ]
             )
-            |> withManualOrScheduleCondition
         ]
     ]
 ]
