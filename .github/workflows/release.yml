@@ -26,6 +26,8 @@ jobs:
       name: Extract release information
       shell: pwsh
       run: dotnet fsi ./scripts/extract-release.fsx
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && steps.extract-release.outputs.has-changes
       name: Prepare a release
       uses: softprops/action-gh-release@v2

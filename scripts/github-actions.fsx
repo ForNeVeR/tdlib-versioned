@@ -140,7 +140,10 @@ let workflows = [
                 id = "extract-release",
                 name = "Extract release information",
                 shell = "pwsh",
-                run = "dotnet fsi ./scripts/extract-release.fsx"
+                run = "dotnet fsi ./scripts/extract-release.fsx",
+                env = Map.ofList [
+                    "GITHUB_TOKEN", "${{ secrets.GITHUB_TOKEN }}"
+                ]
             )
 
             step(
