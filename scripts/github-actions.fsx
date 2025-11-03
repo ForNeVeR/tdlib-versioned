@@ -97,9 +97,19 @@ let workflows = [
     workflow "Maintenance" [
         onSchedule(cron = "0 0 * * *") // every day
 
-        linuxSourceJob "clone-upstream" [
+        job "clone-upstream" [
+            runsOn "ubuntu-24.04"
+
             jobPermission(PermissionKind.Contents, AccessKind.Write)
             jobPermission(PermissionKind.PullRequests, AccessKind.Write)
+
+            step(
+                name = "Check out the sources",
+                usesSpec = Auto "actions/checkout",
+                options = Map.ofList [
+                    "fetch-depth", "0"
+                ]
+            )
 
             powerShell "Clone upstream repository"
                 "./scripts/Update-Upstream.ps1"
