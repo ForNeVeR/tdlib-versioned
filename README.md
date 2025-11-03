@@ -30,7 +30,7 @@ Usage
 > [!IMPORTANT]
 > Note that the code in this repository is not endorsed by the TDLib team in any way.
 >
-> If you are looking to check for the authenticity of the version information, please see the following section.
+> If you are looking to check for the authenticity of the version information, please see the next section after this one.
 >
 > We recommend always double-checking the authenticity of the code you receive from any third-party sources.
 
