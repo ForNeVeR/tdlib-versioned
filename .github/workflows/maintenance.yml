@@ -23,6 +23,8 @@ jobs:
     steps:
     - name: Check out the sources
       uses: actions/checkout@v5
+      with:
+        fetch-depth: 0
     - name: Clone upstream repository
       shell: pwsh
       run: ./scripts/Update-Upstream.ps1
