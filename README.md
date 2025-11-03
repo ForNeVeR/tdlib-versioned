@@ -18,11 +18,51 @@ Meaning that we, the community, need to act on our own.
 
 Versioning Policy
 -----------------
-The general idea here is to have reasonable steps between versions. To avoid confusion, we aim to completely agree with TDLib official versioning where it makes sense, but provide more precise versioning.
+The general idea here is to have reasonable steps between versions. To avoid confusion, we aim to completely agree with TDLib official versioning where it makes sense, but provide more detailed version information (all minor and patch versions, or more).
 
 Currently, since the main TDLib repository has a `VERSION` field in their build files, we track compatibility by this file. We reserve the right to adjust this scheme in the future as necessary (e.g., if the upstream stops updating this file).
 
 Currently, any commit pushed to the upstream TDLib that increments the version number in the `CMakeLists.txt` is considered as **the commit introducing this new version** and should be tagged. Any conflicts will be resolved on a case-by-case-basis.
+
+Usage
+-----
+### How to Find a Versioned Code of TDLib
+> [!IMPORTANT]
+> Note that the code in this repository is not endorsed by the TDLib team in any way.
+>
+> If you are looking to check for the authenticity of the version information, please see the following section.
+>
+> We recommend always double-checking the authenticity of the code you receive from any third-party sources.
+
+The simplest way is to clone this repository and check out a versioned tag. For example, if you are looking for sources of v1.8.0, you can run the following shell commands:
+```console
+$ git clone https://github.com/ForNeVeR/tdlib-versioned.git
+$ cd tdlib-versioned
+$ git checkout tdlib/v1.8.0
+```
+
+All the tags have the form of `tdlib/v*`.
+
+### How to Check The Authenticity of Code
+All the versioned tags in this repository correspond to the code in [the official TDLib repository][tdlib]. Meaning that you can check if the commit annotated by a version in this repository is contained in the main repository. Here's an example of how you can do that:
+```console
+$ git clone git@github.com:tdlib/td.git
+$ cd td
+$ git ls-remote --tags https://github.com/ForNeVeR/tdlib-versioned.git
+[…]
+b3ab664a18f8611f4dfcd3054717504271eeaa7a        refs/tags/tdlib/v1.8.0
+$ git show b3ab664a18f8611f4dfcd3054717504271eeaa7a
+[…]
+```
+
+In this example, you clone the main repository of TDLib, retrieve the version information on 1.8.0 from this repositiry via `git ls-remote`, and then use `git show` to verify that a commit with this id indeed exists in the main TDLib repository.
+
+In fact, you don't need tdlib-versioned repository at all; you can only use it for `git ls-remote` calls, and then rely on the code in the main TDLib repository.
+
+### How to Subscribe to Updates
+For ease of subscription, this repository will publish any new tag in the [Releases][releases] section.
+
+Log in to GitHub and use the **Watch** control in the top right corner of the page, choose **Custom** set of subscription options, and check the box to be notified of **Releases** only (or any other options as you need).
 
 Documentation
 -------------
@@ -37,6 +77,7 @@ The license indication in the project's sources is compliant with the [REUSE spe
 [andivionian-status-classifier]: https://andivionian.fornever.me/v1/#status-zero-
 [docs.contributing]: CONTRIBUTING.md
 [docs.license]: LICENSE.txt
+[releases]: https://github.com/ForNeVeR/tdlib-versioned/releases
 [reuse.spec]: https://reuse.software/spec-3.3/
 [reuse]: https://reuse.software/
 [status-zero]: https://img.shields.io/badge/status-zero-lightgrey.svg
