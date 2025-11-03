@@ -144,7 +144,7 @@ let workflows = [
             )
 
             step(
-                condition = "${{ steps.extract-release.outputs.has-changes }}",
+                condition = "(github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && steps.extract-release.outputs.has-changes",
                 name = "Prepare a release",
                 usesSpec = Auto "softprops/action-gh-release",
                 options = Map.ofList [
