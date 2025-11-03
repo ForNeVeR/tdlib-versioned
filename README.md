@@ -18,7 +18,7 @@ Meaning that we, the community, need to act on our own.
 
 Versioning Policy
 -----------------
-The general idea here is to have reasonable steps between versions. To avoid confusion, we aim to completely agree with TDLib official versioning where it makes sense, but provide more detailed version information (all minor and patch versions, or more).
+The general idea here is to have reasonable steps between versions. To avoid confusion, we aim to completely agree with TDLib official versioning, but provide more detailed version information (all minor and patch versions, or more).
 
 Currently, since the main TDLib repository has a `VERSION` field in their build files, we track compatibility by this file. We reserve the right to adjust this scheme in the future as necessary (e.g., if the upstream stops updating this file).
 
