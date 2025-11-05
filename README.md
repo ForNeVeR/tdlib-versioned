@@ -105,6 +105,8 @@ The project is distributed under the terms of [the Boost Software License 1.0][d
 
 The license indication in the project's sources is compliant with the [REUSE specification v3.3][reuse.spec].
 
+Note that this message only concerns the contents of the `main` branch. The `tdlib` branch is daily synchronized with the TDLib upstream. While currently using the same BSL-1.0 license, it doesn't make any promises of REUSE compatibility or keeping the current licensing.
+
 [andivionian-status-classifier]: https://andivionian.fornever.me/v1/#status-ventis-
 [docs.contributing]: CONTRIBUTING.md
 [docs.license]: LICENSE.txt
