@@ -8,6 +8,7 @@
 
 open System
 open System.Collections.Generic
+open System.Globalization
 open System.IO
 open System.Text
 open System.Text.RegularExpressions
@@ -43,11 +44,11 @@ let tags =
         | _ -> failwithf $"Cannot parse git ls-remote output: \"{line}\"."
     )
 
-let guessTags() = Lifetime.UsingAsync(fun lt -> task {
-    printfn "Enumerating commits…"
-    let dotGit = AbsolutePath(__SOURCE_DIRECTORY__) / "../.git" |> LocalPath
+let dotGit = AbsolutePath(__SOURCE_DIRECTORY__) / "../.git" |> LocalPath
+let index = PackIndex(Lifetime.Eternal, dotGit)
 
-    let index = PackIndex(lt, dotGit)
+let guessTags() = task {
+    printfn "Enumerating commits…"
     let cMakeVersionRegex = Regex(@"project\(TDLib VERSION (.+?) LANGUAGES CXX C\)", RegexOptions.Compiled)
     let getTdLibVersion(commit: Commit) = task {
         let commitTree = commit.Body.Tree
@@ -116,7 +117,7 @@ let guessTags() = Lifetime.UsingAsync(fun lt -> task {
             tag, commit.ToString()
         )
         |> Seq.toArray
-})
+}
 
 let guessedTags = guessTags().Result
 
@@ -124,6 +125,7 @@ let guessedTags = guessTags().Result
 type ReleaseMetadata = {
     Tag: string
     Commit: string
+    Date: string
 }
 
 open System.Text.Json
@@ -137,7 +139,28 @@ let tagToVersion(tag: string) =
     if not <| tag.StartsWith "v" then failwithf $"Unexpected tag name: {tag}."
     Version.Parse(tag.Substring 1)
 
+let getAuthorDate(commit: Commit): DateTimeOffset =
+    match commit.Body.Rest |> Seq.filter(fun x -> x.StartsWith "author ") |> Seq.tryHead with
+    | None -> failwithf $"Cannot find author line in the commit body of commit {commit.Hash}."
+    | Some authorLine ->
+
+    let timeOffsetSeparator = authorLine.LastIndexOf ' '
+    if timeOffsetSeparator = -1 then failwithf $"Incorrect author line format: \"{authorLine}\"."
+    let timeSeparator = authorLine.LastIndexOf(' ', timeOffsetSeparator - 1)
+    if timeSeparator = -1 then failwithf $"Incorrect author line format: \"{authorLine}\"."
+    let time = int64(authorLine.Substring(timeSeparator + 1, timeOffsetSeparator - timeSeparator - 1))
+    let offset = authorLine.Substring(timeOffsetSeparator + 1)
+    if offset[0] <> '+' && offset[0] <> '-' then failwithf $"Invalid time zone offset value: \"{offset}\"."
+    let offsetSign = int64 offset |> Math.Sign |> float
+    let offsetValue = TimeSpan.ParseExact(offset.Substring(1), "hhmm", CultureInfo.InvariantCulture)
+    DateTimeOffset.FromUnixTimeSeconds(time).ToOffset(offsetValue * offsetSign)
+
 let releases =
+    let getCommitDate hash = task {
+        let! commit = Commits.ReadCommit(index, dotGit, Sha1Hash.OfHexString hash)
+        return getAuthorDate commit
+    }
+
     let dict = Dictionary<string, string>()
     for tag, commit in metaFromCommits do dict[tag] <- commit
     for tag, commit in metaFromExistingTags do
@@ -149,7 +172,7 @@ let releases =
             dict[tag] <- commit
 
     dict
-    |> Seq.map(fun kvp -> { Tag = kvp.Key; Commit = kvp.Value })
+    |> Seq.map(fun kvp -> { Tag = kvp.Key; Commit = kvp.Value; Date = (getCommitDate kvp.Value).Result.ToString "o" })
     |> Seq.sortBy(fun x -> tagToVersion x.Tag)
     |> Seq.toArray
 
