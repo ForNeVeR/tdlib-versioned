@@ -64,6 +64,9 @@ For ease of subscription, this repository will publish any new tag in the [Relea
 
 Log in to GitHub and use the **Watch** control in the top right corner of the page, choose **Custom** set of subscription options, and check the box to be notified of **Releases** only (or any other options as you need).
 
+### How to Compare Releases
+The [Releases][releases] section allows comparing any two tags, so you can use that if you want to see what exactly has been changed between releases.
+
 ### Release Information
 The [`releases.json`][releases.json] file contains a list of the following objects for each release:
 ```json
