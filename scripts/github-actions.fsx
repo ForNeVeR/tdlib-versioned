@@ -142,7 +142,7 @@ let workflows = [
     ]
 
     workflow "Release" [
-        onSchedule(cron = "0 0 * * *") // every day
+        onSchedule(cron = "0 * * * *") // every hour
 
         linuxSourceJob "release" [
             jobPermission(PermissionKind.Contents, AccessKind.Write)
