@@ -39,7 +39,7 @@ Currently, any commit pushed to the upstream TDLib that increments the version n
 
 Usage
 -----
-### How to Find a Versioned Code of TDLib
+### How to Get Code of a Particular Version of TDLib
 > [!IMPORTANT]
 > Note that the code in this repository is not endorsed by the TDLib team in any way.
 >
