@@ -64,6 +64,24 @@ For ease of subscription, this repository will publish any new tag in the [Relea
 
 Log in to GitHub and use the **Watch** control in the top right corner of the page, choose **Custom** set of subscription options, and check the box to be notified of **Releases** only (or any other options as you need).
 
+### Release Information
+The [`releases.json`][releases.json] file contains a list of the following objects for each release:
+```json
+[
+    {
+        "Tag": "v1.0.0",
+        "Commit": "71d03f39c364367a8a7c51f783a41099297de826",
+        "Date": "2018-12-31T22:04:05.0000000\u002B03:00",
+        "Source": "tag"
+    }
+]
+```
+where
+- `Tag` is the name of the release tag in this repository (for tag with actual name `tdlib/v1.0.0`, `Tag` field will contain `v1.0.0`),
+- `Commit` is the commit hash for this release,
+- `Date` is ISO-formatted commit date,
+- `Source` is either `"tag"` for releases officially created by tags in the upstream repostitory, or `"derived-from-commit-data"` for tags that are automatically derived from the contents of the `CMakeLists.txt`.
+
 Documentation
 -------------
 - [Contributor Guide][docs.contributing]
@@ -77,6 +95,7 @@ The license indication in the project's sources is compliant with the [REUSE spe
 [andivionian-status-classifier]: https://andivionian.fornever.me/v1/#status-zero-
 [docs.contributing]: CONTRIBUTING.md
 [docs.license]: LICENSE.txt
+[releases.json]: data/releases.json
 [releases]: https://github.com/ForNeVeR/tdlib-versioned/releases
 [reuse.spec]: https://reuse.software/spec-3.3/
 [reuse]: https://reuse.software/
