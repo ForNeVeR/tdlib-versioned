@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2024-2025 Friedrich von Never <friedrich@fornever.me>
 SPDX-License-Identifier: BSL-1.0
 -->
 
-tdlib-versioned [![Status Zero][status-zero]][andivionian-status-classifier]
+tdlib-versioned [![Status Ventis][status-ventis]][andivionian-status-classifier]
 ===============
 This repository contains a fork of Telegram's [TDLib][tdlib], but with version tags attached.
 
@@ -95,14 +95,14 @@ The project is distributed under the terms of [the Boost Software License 1.0][d
 
 The license indication in the project's sources is compliant with the [REUSE specification v3.3][reuse.spec].
 
-[andivionian-status-classifier]: https://andivionian.fornever.me/v1/#status-zero-
+[andivionian-status-classifier]: https://andivionian.fornever.me/v1/#status-ventis-
 [docs.contributing]: CONTRIBUTING.md
 [docs.license]: LICENSE.txt
 [releases.json]: data/releases.json
 [releases]: https://github.com/ForNeVeR/tdlib-versioned/releases
 [reuse.spec]: https://reuse.software/spec-3.3/
 [reuse]: https://reuse.software/
-[status-zero]: https://img.shields.io/badge/status-zero-lightgrey.svg
+[status-ventis]: https://img.shields.io/badge/status-ventis-yellow.svg
 [tdlib-1627]: https://github.com/tdlib/td/issues/1627
 [tdlib-1790]: https://github.com/tdlib/td/issues/1790
 [tdlib-2696]: https://github.com/tdlib/td/issues/2696
