@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: BSL-1.0
 
 #r "nuget: MedallionShell, 1.6.2"
-#r "nuget: Fenrir.Git, 1.0.0"
+#r "nuget: Fenrir.Git, 1.1.0"
 #r "nuget: TruePath.SystemIo, 1.10.0"
 
 open System
@@ -39,7 +39,7 @@ let tags =
     |> Array.map(fun line ->
         let components = line.Split('\t', 2)
         match components with
-        | [| commit; tag |] -> commit, extractTagName tag
+        | [| commit; tag |] -> extractTagName tag, commit
         | _ -> failwithf $"Cannot parse git ls-remote output: \"{line}\"."
     )
 
@@ -48,7 +48,7 @@ let guessTags() = Lifetime.UsingAsync(fun lt -> task {
     let dotGit = AbsolutePath(__SOURCE_DIRECTORY__) / "../.git" |> LocalPath
 
     let index = PackIndex(lt, dotGit)
-    let cMakeVersionRegex = Regex(@"project\(TdLib VERSION (.+?) LANGUAGES CXX C\)", RegexOptions.Compiled)
+    let cMakeVersionRegex = Regex(@"project\(TDLib VERSION (.+?) LANGUAGES CXX C\)", RegexOptions.Compiled)
     let getTdLibVersion(commit: Commit) = task {
         let commitTree = commit.Body.Tree
         let! commitTreeBody = Trees.ReadTreeBody(index, dotGit, commitTree)
@@ -91,17 +91,31 @@ let guessTags() = Lifetime.UsingAsync(fun lt -> task {
             | true, commit -> failwithf $"Two commits introducing the same version {lastVersion}: {commit} and {lastCommit}."
             | false, _ -> commitsIntroducingVersions.Add(lastVersion, lastCommit)
 
-    for commit in allCommits do
+    let mutable lastReportedPercent = -1
+    for i, commit in Seq.indexed allCommits do
         let! version = getTdLibVersion commit
         visitVersion(Some version)
 
         lastCommit <- commit.Hash
         lastVersion <- version
 
+        let percentDone = i * 100 / allCommits.Length
+        if percentDone % 10 = 0 && percentDone <> lastReportedPercent then
+            printfn $"{string percentDone}%% done."
+            lastReportedPercent <- percentDone
+
     visitVersion None
 
     printfn $"Discovered {commitsIntroducingVersions.Count} versions."
-    return commitsIntroducingVersions
+    return
+        commitsIntroducingVersions
+        |> Seq.map (fun kvp ->
+            let version = kvp.Key
+            let tag = $"v{version}"
+            let commit = kvp.Value
+            tag, commit.ToString()
+        )
+        |> Seq.toArray
 })
 
 let guessedTags = guessTags().Result
@@ -114,26 +128,29 @@ type ReleaseMetadata = {
 
 open System.Text.Json
 
-let metaFromCommits =
-    guessedTags
-    |> Seq.map(fun kvp -> kvp.Key, kvp.Value.ToString())
-    |> Seq.toArray
+let metaFromCommits = guessedTags
+let metaFromExistingTags = tags
 
-let metaFromTags = tags
+printfn $"Producing result from {metaFromCommits.Length} releases derived from commits and {metaFromExistingTags.Length} releases derived from tags."
 
-printfn $"Producing result from {metaFromCommits.Length} releases derived from commits and {metaFromTags.Length} releases derived from tags."
+let tagToVersion(tag: string) =
+    if not <| tag.StartsWith "v" then failwithf $"Unexpected tag name: {tag}."
+    Version.Parse(tag.Substring 1)
 
 let releases =
     let dict = Dictionary<string, string>()
     for tag, commit in metaFromCommits do dict[tag] <- commit
-    for tag, commit in metaFromTags do dict[tag] <- commit
+    for tag, commit in metaFromExistingTags do
+        match dict.TryGetValue tag with
+        | false, _ -> dict[tag] <- commit
+        | true, x when x = commit -> ()
+        | true, x ->
+            printfn $"Replacing commit {x} (determined by heuristic) with commit {commit} (determined by upstream tag)."
+            dict[tag] <- commit
 
     dict
     |> Seq.map(fun kvp -> { Tag = kvp.Key; Commit = kvp.Value })
-    |> Seq.sortBy(fun r ->
-        if not <| r.Tag.StartsWith "v" then failwithf $"Unexpected tag name: {r.Tag}."
-        Version.Parse(r.Tag.Substring 1)
-    )
+    |> Seq.sortBy(fun x -> tagToVersion x.Tag)
     |> Seq.toArray
 
 printfn $"Resulting set: {releases.Length} releases."
@@ -150,8 +167,8 @@ File.WriteAllText(releasesJsonPath, jsonString)
 
 let prevReleaseTags = previousReleases |> Seq.map _.Tag |> Set.ofSeq
 let newReleaseTags = releases |> Seq.map _.Tag |> Set.ofSeq
-let removedReleases = prevReleaseTags - newReleaseTags
-let addedReleases = newReleaseTags - prevReleaseTags
+let removedReleases = prevReleaseTags - newReleaseTags |> Seq.sortBy tagToVersion |> Seq.toArray
+let addedReleases = newReleaseTags - prevReleaseTags |> Seq.sortBy tagToVersion |> Seq.toArray
 
 let prevRelMap = previousReleases |> Seq.map(fun r -> r.Tag, r.Commit) |> Map.ofSeq
 let newRelMap = releases |> Seq.map(fun r -> r.Tag, r.Commit) |> Map.ofSeq
@@ -164,11 +181,12 @@ let changedReleases =
             | Some commit when commit = p.Commit -> None
             | Some _ -> Some p.Tag
     ) |> Seq.collect Option.toArray
+    |> Seq.sortBy tagToVersion
     |> Seq.toArray
 
 let gitHubOutput = Environment.GetEnvironmentVariable "GITHUB_OUTPUT"
 let summary =
-    match removedReleases.Count, addedReleases.Count, changedReleases.Length with
+    match removedReleases.Length, addedReleases.Length, changedReleases.Length with
     | 0, 0, 0 -> "<no changes>"
     | 0, 1, 0 -> $"Add release {Seq.exactlyOne addedReleases}"
     | r, a, c ->
