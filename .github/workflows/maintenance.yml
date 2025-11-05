@@ -44,5 +44,4 @@ jobs:
         body: ${{ steps.extract-metadata.outputs.body }}
         branch: new-metadata
         commit-message: ${{ steps.extract-metadata.outputs.commit-message }}
-        draft: ${{ steps.extract-release.outputs.draft }}
         title: ${{ steps.extract-metadata.outputs.title }}

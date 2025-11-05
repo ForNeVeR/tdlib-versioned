@@ -134,7 +134,6 @@ let workflows = [
                     "title", "${{ steps.extract-metadata.outputs.title }}"
                     "commit-message", "${{ steps.extract-metadata.outputs.commit-message }}"
                     "body", "${{ steps.extract-metadata.outputs.body }}"
-                    "draft", "${{ steps.extract-release.outputs.draft }}"
                 ]
             )
             |> withManualOrScheduleCondition
@@ -166,6 +165,7 @@ let workflows = [
                     "tag_name", "${{ steps.extract-release.outputs.tag-name }}"
                     "target_commitish", "${{ steps.extract-release.outputs.commit }}"
                     "make_latest", "${{ steps.extract-release.outputs.make-latest }}"
+                    "draft", "${{ steps.extract-release.outputs.draft }}"
                 ]
             )
         ]
