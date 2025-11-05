@@ -6,15 +6,25 @@ SPDX-License-Identifier: BSL-1.0
 
 tdlib-versioned [![Status Ventis][status-ventis]][andivionian-status-classifier]
 ===============
-This repository contains a fork of Telegram's [TDLib][tdlib], but with version tags attached.
+This repository contains a fork of Telegram's [TDLib][tdlib], but with intermediate version tags attached.
 
-The TDLib team several times refused to add such tags:
+The TDLib team has stated their official position that they [don't want people to rely on the intermediate versions][tdlib-position], and want people to use the latest commit from `master` instead when possible:
+
+> It would be wrong to tag these commits. Telegram is developed continuously and those aren't the commits you are looking for.
+>
+> The TDLib version is increased the same day a Telegram update is released to denote significant changes in the TDLib API. This happens along with push of source code with all new features inplemented. After that there can be a lot of improvements and bug fixes before the next release. Therefore the exact commit, in which the version was changed, isn't recommended for usage to anyone. In fact, if you want to use the most stable TDLib 1.X.Y, you need to search for the first commit with that version and message "Update/Increase layer to ..." and use the commit just before that.
+>
+> But everyone should tend to use as new TDLib version is possible. Telegram updates frequently and new features aren't available in old TDLib versions. Moreover, due to server-side changes or introduction of new features some previously working features can be broken.
+>
+> So, basically, each time a version is stable enough and can be marked with a tag, there is a newer version with the latest features, which should be used instead. Most of the time, the current master version is the TDLib version, which should be used.
+
+This is not always practical, though. Meaning we, the community, should act on our own on this. While we recommend you to listen to the TDLib team whenever possible, for the cases when it is _not_ possible, feel free to rely on this repository, its releases, and tags.
+
+Some other related discussions are:
 - [#913: Git tags for minor versions][tdlib-913],
 - [#1627: git tag patch versions][tdlib-1627],
 - [#1790: Put a 1.7.10 tag][tdlib-1790],
 - [#2696: Could you please make the tag regularly after every update?][tdlib-2696]
-
-Meaning that we, the community, need to act on our own.
 
 Versioning Policy
 -----------------
@@ -107,4 +117,5 @@ The license indication in the project's sources is compliant with the [REUSE spe
 [tdlib-1790]: https://github.com/tdlib/td/issues/1790
 [tdlib-2696]: https://github.com/tdlib/td/issues/2696
 [tdlib-913]: https://github.com/tdlib/td/issues/913
+[tdlib-position]: https://github.com/tdlib/td/issues/1627#issuecomment-885993462
 [tdlib]: https://github.com/tdlib/td
