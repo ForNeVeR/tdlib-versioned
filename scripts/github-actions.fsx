@@ -134,6 +134,7 @@ let workflows = [
                     "title", "${{ steps.extract-metadata.outputs.title }}"
                     "commit-message", "${{ steps.extract-metadata.outputs.commit-message }}"
                     "body", "${{ steps.extract-metadata.outputs.body }}"
+                    "draft", "${{ steps.extract-release.outputs.draft }}"
                 ]
             )
             |> withManualOrScheduleCondition

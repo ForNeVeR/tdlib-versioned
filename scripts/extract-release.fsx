@@ -23,6 +23,7 @@ let releasesJson = repositoryRoot / "data" / "releases.json"
 type ReleaseMetadata = {
     Tag: string
     Commit: string
+    Source: string
 }
 
 let existingReleasesTask = task {
@@ -76,6 +77,13 @@ let makeLatest =
         currentVersion = maxVersion
     )
     |> Option.defaultValue false
+// Release for a version ending with `.0` is expected to contain a `Source = "tag"`.
+// Otherwise, create it as a draft and wait until TDLib marks it properly.
+// But only for the latest version (others are expected to be filled anyway).
+let isDraft =
+    releaseToCreate
+    |> Option.map (fun r -> makeLatest && r.Source = "derived-from-commit-data" && r.Tag.EndsWith ".0")
+    |> Option.defaultValue false
 
 let writeResults() =
     let output = Environment.GetEnvironmentVariable "GITHUB_OUTPUT" |> Option.ofObj
@@ -102,5 +110,6 @@ let writeResults() =
     serializeParameter "tag-name" tagName
     serializeParameter "commit" commit
     serializeParameter "make-latest" <| fromBool makeLatest
+    serializeParameter "draft" <| fromBool isDraft
 
 writeResults()
