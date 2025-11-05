@@ -126,6 +126,7 @@ type ReleaseMetadata = {
     Tag: string
     Commit: string
     Date: string
+    Source: string
 }
 
 open System.Text.Json
@@ -161,18 +162,26 @@ let releases =
         return getAuthorDate commit
     }
 
-    let dict = Dictionary<string, string>()
-    for tag, commit in metaFromCommits do dict[tag] <- commit
+    let dict = Dictionary()
+    for tag, commit in metaFromCommits do dict[tag] <- {| Commit = commit; Source = "derived-from-commit-data" |}
     for tag, commit in metaFromExistingTags do
         match dict.TryGetValue tag with
-        | false, _ -> dict[tag] <- commit
-        | true, x when x = commit -> ()
+        | false, _ -> dict[tag] <- {| Commit = commit; Source = "tag" |}
+        | true, x when x.Commit = commit -> dict[tag] <- {| Commit = commit; Source = "tag" |}
         | true, x ->
             printfn $"Replacing commit {x} (determined by heuristic) with commit {commit} (determined by upstream tag)."
-            dict[tag] <- commit
+            dict[tag] <- {| Commit = commit; Source = "tag" |}
 
     dict
-    |> Seq.map(fun kvp -> { Tag = kvp.Key; Commit = kvp.Value; Date = (getCommitDate kvp.Value).Result.ToString "o" })
+    |> Seq.map(fun kvp ->
+        let tag = kvp.Key
+        let info = kvp.Value
+        let hash = info.Commit
+        { Tag = tag
+          Commit = hash
+          Date = (getCommitDate hash).Result.ToString "o"
+          Source = info.Source }
+    )
     |> Seq.sortBy(fun x -> tagToVersion x.Tag)
     |> Seq.toArray
 
