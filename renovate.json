@@ -8,7 +8,7 @@
             "description": "Update the packages in F# scripts.",
             "customType": "regex",
             "managerFilePatterns": [
-                "scripts/github-actions.fsx"
+                "scripts/*.fsx"
             ],
             "matchStrings": [
                 "#r \"nuget: (?<depName>.+), (?<currentValue>\\S+)\""
