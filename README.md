@@ -68,7 +68,7 @@ $ git show b3ab664a18f8611f4dfcd3054717504271eeaa7a
 […]
 ```
 
-In this example, you clone the main repository of TDLib, retrieve the version information on 1.8.0 from this repositiry via `git ls-remote`, and then use `git show` to verify that a commit with this id indeed exists in the main TDLib repository.
+In this example, you clone the main repository of TDLib, retrieve the version information on 1.8.0 from this repository via `git ls-remote`, and then use `git show` to verify that a commit with this id indeed exists in the main TDLib repository.
 
 In fact, you don't need tdlib-versioned repository at all; you can only use it for `git ls-remote` calls, and then rely on the code in the main TDLib repository.
 
