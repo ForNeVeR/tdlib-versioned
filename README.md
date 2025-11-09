@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2024-2025 Friedrich von Never <friedrich@fornever.me>
 SPDX-License-Identifier: BSL-1.0
 -->
 
-tdlib-versioned [![Status Ventis][status-ventis]][andivionian-status-classifier] [![Latest release][release-badge]][releases]
+tdlib-versioned [![Status Aquana][status-aquana]][andivionian-status-classifier] [![Latest release][release-badge]][releases]
 ===============
 This repository contains a fork of Telegram's [TDLib][tdlib], but with intermediate version tags attached.
 
@@ -110,7 +110,7 @@ The license indication in the project's sources is compliant with the [REUSE spe
 
 Note that this message only concerns the contents of the `main` branch. The `tdlib` branch is daily synchronized with the TDLib upstream. While currently using the same BSL-1.0 license, it doesn't make any promises of REUSE compatibility or keeping the current licensing.
 
-[andivionian-status-classifier]: https://andivionian.fornever.me/v1/#status-ventis-
+[andivionian-status-classifier]: https://andivionian.fornever.me/v1/#status-aquana-
 [docs.contributing]: CONTRIBUTING.md
 [docs.license]: LICENSE.txt
 [release-badge]: https://img.shields.io/github/v/release/ForNeVeR/tdlib-versioned
@@ -118,7 +118,7 @@ Note that this message only concerns the contents of the `main` branch. The `tdl
 [releases]: https://github.com/ForNeVeR/tdlib-versioned/releases
 [reuse.spec]: https://reuse.software/spec-3.3/
 [reuse]: https://reuse.software/
-[status-ventis]: https://img.shields.io/badge/status-ventis-yellow.svg
+[status-aquana]: https://img.shields.io/badge/status-aquana-yellowgreen.svg
 [tdlib-1627]: https://github.com/tdlib/td/issues/1627
 [tdlib-1790]: https://github.com/tdlib/td/issues/1790
 [tdlib-2696]: https://github.com/tdlib/td/issues/2696
