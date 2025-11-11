@@ -8,9 +8,6 @@ tdlib-versioned [![Status Aquana][status-aquana]][andivionian-status-classifier]
 ===============
 This repository contains a fork of Telegram's [TDLib][tdlib], but with intermediate version tags attached.
 
-> [!IMPORTANT]
-> **Current status:** we are synchronizing the old releases from the upstream, the latest version is expected to arrive at **2025-11-10**.
-
 The TDLib team has stated their official position that they [don't want people to rely on the intermediate versions][tdlib-position], and want people to use the latest commit from `master` instead when possible:
 
 > It would be wrong to tag these commits. Telegram is developed continuously and those aren't the commits you are looking for.
