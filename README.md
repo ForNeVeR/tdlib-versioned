@@ -77,6 +77,8 @@ Log in to GitHub and use the **Watch** control in the top right corner of the pa
 ### How to Compare Releases
 The [Releases][releases] section allows comparing any two tags, so you can use that if you want to see what exactly has been changed between releases.
 
+For example, here's [a link comparing the releases 1.8.55 and 1.8.56][release-comparison-example].
+
 ### Release Information
 The [`releases.json`][releases.json] file contains a list of the following objects for each release:
 ```json
@@ -111,6 +113,7 @@ Note that this message only concerns the contents of the `main` branch. The `tdl
 [docs.contributing]: CONTRIBUTING.md
 [docs.license]: LICENSE.txt
 [release-badge]: https://img.shields.io/github/v/release/ForNeVeR/tdlib-versioned
+[release-comparison-example]: https://github.com/ForNeVeR/tdlib-versioned/compare/tdlib/v1.8.55...tdlib/v1.8.56
 [releases.json]: data/releases.json
 [releases]: https://github.com/ForNeVeR/tdlib-versioned/releases
 [reuse.spec]: https://reuse.software/spec-3.3/
