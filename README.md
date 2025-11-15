@@ -34,6 +34,8 @@ Currently, since the main TDLib repository has a `VERSION` field in their build 
 
 Currently, any commit pushed to the upstream TDLib that increments the version number in the `CMakeLists.txt` is considered as **the commit introducing this new version** and should be tagged. Any conflicts will be resolved on a case-by-case-basis.
 
+We may add additional `<revision>` numbers after TDLib's main version, resulting in the notation `<major>.<minor>.<build>.<revsion>`, as necessary (e.g., when TDLib adds a build or security fixes after a tagged commit).
+
 Usage
 -----
 ### How to Get Code of a Particular Version of TDLib
@@ -87,15 +89,20 @@ The [`releases.json`][releases.json] file contains a list of the following objec
         "Tag": "v1.0.0",
         "Commit": "71d03f39c364367a8a7c51f783a41099297de826",
         "Date": "2018-12-31T22:04:05.0000000\u002B03:00",
-        "Source": "tag"
+        "Source": "tag",
+        "Comment": "optional"
     }
 ]
 ```
 where
-- `Tag` is the name of the release tag in this repository (for tag with actual name `tdlib/v1.0.0`, `Tag` field will contain `v1.0.0`),
-- `Commit` is the commit hash for this release,
-- `Date` is ISO-formatted commit date,
-- `Source` is either `"tag"` for releases officially created by tags in the upstream repostitory, or `"derived-from-commit-data"` for tags that are automatically derived from the contents of the `CMakeLists.txt`.
+- `Tag` is the name of the release tag in this repository (for tag with actual name `tdlib/v1.0.0`, `Tag` field will contain `v1.0.0`);
+- `Commit` is the commit hash for this release;
+- `Date` is an ISO-formatted commit date (optional — for information only);
+- `Source` is either:
+  - `"tag"` for releases officially created by tags in the upstream repostitory,
+  - `"derived-from-commit-data"` for tags that are automatically derived from the contents of the `CMakeLists.txt`,
+  - or `"manual"` for tags created manually by the tdlib-versioned maintainers;
+- `Comment` is an optional field containing a comment from the maintainers.
 
 Documentation
 -------------

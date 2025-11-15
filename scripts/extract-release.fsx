@@ -24,6 +24,7 @@ type ReleaseMetadata = {
     Tag: string
     Commit: string
     Source: string
+    Comment: string | null
 }
 
 let existingReleasesTask = task {
@@ -62,28 +63,28 @@ let missingReleases =
 printfn $"{missingReleases.Length} missing releases to create."
 
 let releaseToCreate = missingReleases |> Array.tryHead
-let hasChanges = Option.isSome releaseToCreate
-let name = releaseToCreate |> Option.map _.Tag |> Option.defaultValue ""
-let tagName = releaseToCreate |> Option.map(fun r -> $"tdlib/{r.Tag}") |> Option.defaultValue ""
-let commit = releaseToCreate |> Option.map _.Commit |> Option.defaultValue ""
-let makeLatest =
-    releaseToCreate
-    |> Option.map (fun release ->
+let releaseMetadata = releaseToCreate |> Option.map(fun release ->
+    let makeLatest =
         let maxVersion =
             requiredReleases
             |> Seq.map versionFromRelease
             |> Seq.max
         let currentVersion = versionFromRelease release
         currentVersion = maxVersion
-    )
-    |> Option.defaultValue false
-// Release for a version ending with `.0` is expected to contain a `Source = "tag"`.
-// Otherwise, create it as a draft and wait until TDLib marks it properly.
-// But only for the latest version (others are expected to be filled anyway).
-let isDraft =
-    releaseToCreate
-    |> Option.map (fun r -> makeLatest && r.Source = "derived-from-commit-data" && r.Tag.EndsWith ".0")
-    |> Option.defaultValue false
+
+    {|
+        Name = release.Tag
+        Body = release.Comment |> Option.ofObj |> Option.defaultValue ""
+        TagName = $"tdlib/{release.Tag}"
+        Commit = release.Commit
+        MakeLatest = makeLatest
+
+        // Release for a version ending with `.0` is expected to contain a `Source = "tag"`.
+        // Otherwise, create it as a draft and wait until TDLib marks it properly.
+        // But only for the latest version (others are expected to be filled anyway).
+        IsDraft = makeLatest && release.Source = "derived-from-commit-data" && release.Tag.EndsWith ".0"
+    |}
+)
 
 let writeResults() =
     let output = Environment.GetEnvironmentVariable "GITHUB_OUTPUT" |> Option.ofObj
@@ -105,11 +106,16 @@ let writeResults() =
 
     let fromBool b = if b then "true" else "false"
 
-    serializeParameter "has-changes" <| fromBool hasChanges
-    serializeParameter "name" name
-    serializeParameter "tag-name" tagName
-    serializeParameter "commit" commit
-    serializeParameter "make-latest" <| fromBool makeLatest
-    serializeParameter "draft" <| fromBool isDraft
+    match releaseMetadata with
+    | None ->
+        serializeParameter "has-changes" <| fromBool false
+    | Some release ->
+        serializeParameter "has-changes" <| fromBool true
+        serializeParameter "name" release.Name
+        serializeParameter "body" release.Body
+        serializeParameter "tag-name" release.TagName
+        serializeParameter "commit" release.Commit
+        serializeParameter "make-latest" <| fromBool release.MakeLatest
+        serializeParameter "draft" <| fromBool release.IsDraft
 
 writeResults()
