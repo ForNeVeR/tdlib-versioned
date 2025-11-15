@@ -3,6 +3,7 @@
     "extends": [
         "config:recommended"
     ],
+    "automerge": true,
     "customManagers": [
         {
             "description": "Update the packages in F# scripts.",
