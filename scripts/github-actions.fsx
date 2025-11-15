@@ -89,6 +89,11 @@ let workflows = [
                 ]
             )
 
+            step(
+                name = "Set up .NET SDK",
+                usesSpec = Auto "actions/setup-dotnet"
+            )
+
             powerShell "Prepare tags"
                 "dotnet fsi ./scripts/update-tags.fsx --what-if ${{ github.ref != 'refs/heads/main' }}"
         ]
@@ -119,6 +124,11 @@ let workflows = [
             |> withManualOrScheduleCondition
 
             step(
+                name = "Set up .NET SDK",
+                usesSpec = Auto "actions/setup-dotnet"
+            )
+
+            step(
                 id = "extract-metadata",
                 name = "Extract metadata",
                 shell = "pwsh",
@@ -145,6 +155,11 @@ let workflows = [
 
         linuxSourceJob "release" [
             jobPermission(PermissionKind.Contents, AccessKind.Write)
+
+            step(
+                name = "Set up .NET SDK",
+                usesSpec = Auto "actions/setup-dotnet"
+            )
 
             step(
                 id = "extract-release",

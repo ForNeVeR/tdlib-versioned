@@ -22,6 +22,8 @@ jobs:
     steps:
     - name: Check out the sources
       uses: actions/checkout@v5
+    - name: Set up .NET SDK
+      uses: actions/setup-dotnet@v5
     - id: extract-release
       name: Extract release information
       shell: pwsh
