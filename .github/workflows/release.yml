@@ -32,6 +32,7 @@ jobs:
       name: Prepare a release
       uses: softprops/action-gh-release@v2
       with:
+        body: ${{ steps.extract-release.outputs.body }}
         draft: ${{ steps.extract-release.outputs.draft }}
         make_latest: ${{ steps.extract-release.outputs.make-latest }}
         name: ${{ steps.extract-release.outputs.name }}

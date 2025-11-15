@@ -125,16 +125,24 @@ let guessedTags = guessTags().Result
 type ReleaseMetadata = {
     Tag: string
     Commit: string
-    Date: string
+    Date: string | null
     Source: string
+    Comment: string | null
 }
 
 open System.Text.Json
 
+let releasesJsonPath = Path.Combine(__SOURCE_DIRECTORY__, "../data/releases.json")
+
+let previousReleases =
+    File.ReadAllText releasesJsonPath
+    |> JsonSerializer.Deserialize<ReleaseMetadata[]>
+
 let metaFromCommits = guessedTags
 let metaFromExistingTags = tags
+let metaFromExistingReleases = previousReleases |> Seq.filter(fun x -> x.Source = "manual") |> Seq.toArray
 
-printfn $"Producing result from {metaFromCommits.Length} releases derived from commits and {metaFromExistingTags.Length} releases derived from tags."
+printfn $"Producing result from {metaFromCommits.Length} releases derived from commits, {metaFromExistingTags.Length} releases derived from tags, and {metaFromExistingReleases} releases created manually."
 
 let tagToVersion(tag: string) =
     if not <| tag.StartsWith "v" then failwithf $"Unexpected tag name: {tag}."
@@ -163,14 +171,23 @@ let releases =
     }
 
     let dict = Dictionary()
-    for tag, commit in metaFromCommits do dict[tag] <- {| Commit = commit; Source = "derived-from-commit-data" |}
+    for tag, commit in metaFromCommits do dict[tag] <- {| Commit = commit; Source = "derived-from-commit-data"; Comment = null |}
     for tag, commit in metaFromExistingTags do
         match dict.TryGetValue tag with
-        | false, _ -> dict[tag] <- {| Commit = commit; Source = "tag" |}
-        | true, x when x.Commit = commit -> dict[tag] <- {| Commit = commit; Source = "tag" |}
+        | false, _ -> dict[tag] <- {| Commit = commit; Source = "tag"; Comment = null |}
+        | true, x when x.Commit = commit -> dict[tag] <- {| Commit = commit; Source = "tag"; Comment = null |}
         | true, x ->
             printfn $"Replacing commit {x} (determined by heuristic) with commit {commit} (determined by upstream tag)."
-            dict[tag] <- {| Commit = commit; Source = "tag" |}
+            dict[tag] <- {| Commit = commit; Source = "tag"; Comment = null |}
+
+    for release in metaFromExistingReleases do
+        match dict.TryGetValue release.Tag with
+        | false, _ -> dict[release.Tag] <- {| Commit = release.Commit; Source = "manual"; Comment = release.Comment |}
+        | true, x when x.Commit = release.Commit ->
+            dict[release.Tag] <- {| Commit = release.Commit; Source = "manual"; Comment = release.Comment |}
+        | true, x ->
+            printfn $"Replacing commit {x} (determined by heuristic) with commit {release.Commit} (determined manually)."
+            dict[release.Tag] <- {| Commit = release.Commit; Source = "manual"; Comment = release.Comment |}
 
     dict
     |> Seq.map(fun kvp ->
@@ -180,18 +197,13 @@ let releases =
         { Tag = tag
           Commit = hash
           Date = (getCommitDate hash).Result.ToString "o"
-          Source = info.Source }
+          Source = info.Source
+          Comment = info.Comment }
     )
     |> Seq.sortBy(fun x -> tagToVersion x.Tag)
     |> Seq.toArray
 
 printfn $"Resulting set: {releases.Length} releases."
-
-let releasesJsonPath = Path.Combine(__SOURCE_DIRECTORY__, "../data/releases.json")
-
-let previousReleases =
-    File.ReadAllText releasesJsonPath
-    |> JsonSerializer.Deserialize<ReleaseMetadata[]>
 
 let options = JsonSerializerOptions(WriteIndented = true)
 let jsonString = JsonSerializer.Serialize(releases, options) + "\n"

@@ -700,5 +700,11 @@
     "Commit": "8fbaf8441a79214bd00a1f19ab0bbcc91cd04e52",
     "Date": "2025-10-15T14:58:24.0000000\u002B03:00",
     "Source": "derived-from-commit-data"
+  },
+  {
+    "Tag": "v1.8.56.1",
+    "Commit": "4f4df7c6436085391e0b6d74cc7a54cf274c7edf",
+    "Source": "manual",
+    "Comment": "v1.8.56 with compilation fixes from the TDLib repository."
   }
 ]

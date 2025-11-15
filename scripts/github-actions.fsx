@@ -162,6 +162,7 @@ let workflows = [
                 usesSpec = Auto "softprops/action-gh-release",
                 options = Map.ofList [
                     "name", "${{ steps.extract-release.outputs.name }}"
+                    "body", "${{ steps.extract-release.outputs.body }}"
                     "tag_name", "${{ steps.extract-release.outputs.tag-name }}"
                     "target_commitish", "${{ steps.extract-release.outputs.commit }}"
                     "make_latest", "${{ steps.extract-release.outputs.make-latest }}"
