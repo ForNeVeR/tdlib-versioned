@@ -3,707 +3,825 @@
     "Tag": "v1.0.0",
     "Commit": "71d03f39c364367a8a7c51f783a41099297de826",
     "Date": "2018-12-31T22:04:05.0000000\u002B03:00",
-    "Source": "tag"
+    "Source": "tag",
+    "Comment": null
   },
   {
     "Tag": "v1.0.1",
     "Commit": "3eebb160209df23c2932a0871d7fe13eb71d28d2",
     "Date": "2018-01-10T03:18:03.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.0.2",
     "Commit": "ee37765a24c4031888518c28bc2d40697b375a7e",
     "Date": "2018-01-16T18:06:35.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.0.3",
     "Commit": "4a713beee1aa9579a923674469c5f089d88cfc6a",
     "Date": "2018-01-17T00:27:16.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.0.4",
     "Commit": "5895f817d897ad0a271c6714e30447e1a5b3f366",
     "Date": "2018-01-19T18:04:16.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.0.5",
     "Commit": "fe133efefc4bcd6e0834e5ef4911f79a41823af1",
     "Date": "2018-01-24T00:45:26.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.0.6",
     "Commit": "a47d5d5511c8064bc16e059e6cd04b12c1af76d2",
     "Date": "2018-01-28T19:38:59.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.0.7",
     "Commit": "d7ecc96113aa73445102b6a51b8f740517a0ab47",
     "Date": "2018-01-30T20:06:54.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.1.0",
     "Commit": "19ef0361f9e4bf7e45e117f2fd12307629298d5e",
     "Date": "2018-01-31T21:24:11.0000000\u002B03:00",
-    "Source": "tag"
+    "Source": "tag",
+    "Comment": null
   },
   {
     "Tag": "v1.1.1",
     "Commit": "6c706f45e7a73c936b9f2f267785092c8a73348f",
     "Date": "2018-02-04T00:59:09.0000000\u002B03:00",
-    "Source": "tag"
+    "Source": "tag",
+    "Comment": null
   },
   {
     "Tag": "v1.1.2",
     "Commit": "154022ebfedda150457fadb85fe6c43a8f4c39b7",
     "Date": "2018-02-07T02:31:38.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.1.3",
     "Commit": "c3fe3f97eca674a6afeb8da79c4696f30d3eb6c3",
     "Date": "2018-02-21T00:20:45.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.1.4",
     "Commit": "b5036975b8366181a229a56557e3f7fadc3f2467",
     "Date": "2018-03-02T19:21:43.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.1.5",
     "Commit": "e4d76c43c3aa92b0bd6b4997a7e7d958982e080b",
     "Date": "2018-03-05T00:36:16.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.1.6",
     "Commit": "52f45abf651a885a19641c1bae05a76bc98322d2",
     "Date": "2018-03-13T20:48:08.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.2.0",
     "Commit": "cfe4d9bdcee9305632eb228a46a95407d05b5c7a",
     "Date": "2018-03-20T18:54:50.0000000\u002B03:00",
-    "Source": "tag"
+    "Source": "tag",
+    "Comment": null
   },
   {
     "Tag": "v1.2.1",
     "Commit": "bd7a53c93693e2b487d0974b157d29ff44781cfc",
     "Date": "2018-05-10T22:11:20.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.2.2",
     "Commit": "cbef0868168654a3fa120766188150cec3d70159",
     "Date": "2018-05-15T11:26:04.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.2.4",
     "Commit": "aeaa1952337acb059ee9ac871f998368823bc305",
     "Date": "2018-06-16T20:04:53.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.2.5",
     "Commit": "aa13a57a3c37cfde18ab1e28b6d919077d71eb42",
     "Date": "2018-06-26T00:10:53.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.3.0",
     "Commit": "a9608ca379e1582552d7a123912aa9d68c2bb1ca",
     "Date": "2018-09-05T19:20:55.0000000\u002B03:00",
-    "Source": "tag"
+    "Source": "tag",
+    "Comment": null
   },
   {
     "Tag": "v1.3.1",
     "Commit": "f207b1eed4cd4ddd1086dfac4e017fc4bab77815",
     "Date": "2018-09-13T03:15:06.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.3.2",
     "Commit": "514d84e3ab6af6478ae6a278b6766a4b131de21b",
     "Date": "2018-09-30T02:50:12.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.3.3",
     "Commit": "2fa81be61456742b6fc1003028ce2ffd1a9d4197",
     "Date": "2018-10-27T03:10:08.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.3.4",
     "Commit": "7b4e8c9e1213f7aca0d2fe65a1b78e56ed89fa77",
     "Date": "2018-11-29T02:51:10.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.3.5",
     "Commit": "fd228ce404b83c20e253bbb41cde0d2cb0b4f279",
     "Date": "2018-12-29T01:51:21.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.3.6",
     "Commit": "3226e859ad8440391afdb195ad8ef05b681d033a",
     "Date": "2019-02-23T23:05:30.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.4.0",
     "Commit": "21dee3b1d923f3fdacc711b46ad102b1d0d1439b",
     "Date": "2019-05-01T20:03:27.0000000\u002B03:00",
-    "Source": "tag"
+    "Source": "tag",
+    "Comment": null
   },
   {
     "Tag": "v1.4.1",
     "Commit": "d7e7b6291a83b0b9027c991aeb8cc0725b97c407",
     "Date": "2019-06-27T02:50:09.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.4.2",
     "Commit": "39e8379a86f26b520bb59e4db8a78feb35eb0437",
     "Date": "2019-08-29T03:30:10.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.5.0",
     "Commit": "b6a483dc41dfe47f60d5b69df8258b956a28601c",
     "Date": "2019-09-09T20:41:59.0000000\u002B03:00",
-    "Source": "tag"
+    "Source": "tag",
+    "Comment": null
   },
   {
     "Tag": "v1.5.1",
     "Commit": "9b0530e704158e56384e9b692590a9227e0cba83",
     "Date": "2019-09-27T00:24:16.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.5.2",
     "Commit": "ecc856a52c1f932e06c2ef87bdb1bd9a99b1ac9f",
     "Date": "2019-10-22T18:21:09.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.5.3",
     "Commit": "5fd1339bc1a2cadb8c52b61f2a4e5ccca8d0c41f",
     "Date": "2019-11-26T21:35:14.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.5.4",
     "Commit": "47c4d4267464c0b5709a9037ec2a49150f3de701",
     "Date": "2019-12-20T04:30:17.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.5.5",
     "Commit": "161b9322560d491bfcd4b5d2c34340cdf5dc64a4",
     "Date": "2020-01-14T04:38:15.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.6.0",
     "Commit": "278c7acdec83c5ac17d8e1ed0bb2cacbcea62460",
     "Date": "2020-01-31T03:47:49.0000000\u002B03:00",
-    "Source": "tag"
+    "Source": "tag",
+    "Comment": null
   },
   {
     "Tag": "v1.6.1",
     "Commit": "545ed2a683b90ee305549ba27b1022f24d04adcd",
     "Date": "2020-02-16T00:54:03.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.6.2",
     "Commit": "9679cef0bb0b8a8c2d7fecb51fa901392cfa196b",
     "Date": "2020-03-28T16:52:26.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.6.3",
     "Commit": "c6d06e41db5b3894fa98fc2255a4ad231be17962",
     "Date": "2020-04-20T01:05:39.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.6.4",
     "Commit": "0b1b9be4efcc761897e387454709075f4834fcd1",
     "Date": "2020-04-30T22:30:38.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.6.5",
     "Commit": "5989a3939b8767a02b9c55dfe845db2297e02414",
     "Date": "2020-05-30T02:44:36.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.6.6",
     "Commit": "c78fbe4bc5e31395e08f916816704e8051f27296",
     "Date": "2020-06-02T17:03:04.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.6.7",
     "Commit": "48a219041a88d246753fc911fb9fcf6d139ef98b",
     "Date": "2020-07-26T14:26:14.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.6.8",
     "Commit": "3282a873cb24b0c975b6929aeb71a00fc6a18b7c",
     "Date": "2020-08-16T10:42:58.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.6.9",
     "Commit": "30921606c5a5ea4c31193adcbb457cce4503751d",
     "Date": "2020-09-30T22:51:46.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.6.10",
     "Commit": "b433905bb0222c1117d3107b0140e9548072bf96",
     "Date": "2020-10-30T21:09:08.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.0",
     "Commit": "eb80924dad30af4e6d8385d058bb7e847174df5e",
     "Date": "2020-11-28T17:00:17.0000000\u002B03:00",
-    "Source": "tag"
+    "Source": "tag",
+    "Comment": null
   },
   {
     "Tag": "v1.7.1",
     "Commit": "312e3b740afbc9dbc8b8a539d4fb0d510b614779",
     "Date": "2021-01-28T22:18:33.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.2",
     "Commit": "b348e4e1bcc8b8182990ef1e73ff7afc5a207f9d",
     "Date": "2021-02-25T16:09:55.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.3",
     "Commit": "302e5940d4bf6c1299673dd05ee926f945d82cc3",
     "Date": "2021-03-19T15:30:40.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.4",
     "Commit": "5bd0c2c46ded5c75a641829cfe84c0b5fead5bfc",
     "Date": "2021-04-14T15:20:44.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.5",
     "Commit": "24e5803b969b15c286e8e501f6b66446b32f2b09",
     "Date": "2021-07-02T03:30:39.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.6",
     "Commit": "85fc9065fdb836c07437f5eb73196db8a59f49ce",
     "Date": "2021-07-26T21:31:35.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.7",
     "Commit": "7135caa2bef38939f58e9e206db83fd316236682",
     "Date": "2021-09-02T12:39:05.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.8",
     "Commit": "a7dcbe8c18938c67d35dee6da7782851e3b5ec4b",
     "Date": "2021-09-19T20:55:47.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.9",
     "Commit": "7d41d9eaa58a6e0927806283252dc9e74eda5512",
     "Date": "2021-11-05T03:34:52.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.10",
     "Commit": "a53cb30e99f937cfd64e0266fa558785a184a553",
     "Date": "2021-12-07T13:11:28.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.11",
     "Commit": "4791fb6a2af0257f6cad8396e10424a79ee5f768",
     "Date": "2021-12-23T23:02:19.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.7.12",
     "Commit": "a69030239c53951db8a1b0af6408f24d63f5dcb7",
     "Date": "2021-12-28T04:19:41.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.0",
     "Commit": "b3ab664a18f8611f4dfcd3054717504271eeaa7a",
     "Date": "2021-12-29T17:38:20.0000000\u002B03:00",
-    "Source": "tag"
+    "Source": "tag",
+    "Comment": null
   },
   {
     "Tag": "v1.8.1",
     "Commit": "92c2a9c4e521df720abeaa9872e1c2b797d5c93f",
     "Date": "2022-01-31T22:07:31.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.2",
     "Commit": "3f54c301ead1bbe6529df4ecfb63c7f645dd181c",
     "Date": "2022-03-15T20:09:29.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.3",
     "Commit": "054a823c1a812ee3e038f702c6d8ba3e6974be9c",
     "Date": "2022-04-16T06:02:10.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.4",
     "Commit": "7eabd8ca60de025e45e99d4e5edd39f4ebd9467e",
     "Date": "2022-06-19T19:51:00.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.5",
     "Commit": "d9cfcf88fe4ad06dae1716ce8f66bbeb7f9491d9",
     "Date": "2022-07-31T03:19:36.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.6",
     "Commit": "15db91b536d796778b628fef3d60923cef351512",
     "Date": "2022-09-16T21:38:09.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.7",
     "Commit": "a7a17b34b3c8fd3f7f6295f152746beb68f34d83",
     "Date": "2022-10-07T01:49:49.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.8",
     "Commit": "bbe37ee594d97f3c7820dd23ebcd9c9b8dac51a0",
     "Date": "2022-11-05T02:50:48.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.9",
     "Commit": "9e524598a50820250961b3211ed5e6ed68aa0ad7",
     "Date": "2022-12-06T23:49:39.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.10",
     "Commit": "93c42f6d7c1209937431469f80427d48907f1b8d",
     "Date": "2022-12-30T12:59:58.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.11",
     "Commit": "3179d35694a28267a0b6273fc9b5bdce3b6b1235",
     "Date": "2023-02-02T19:19:34.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.12",
     "Commit": "0c09070ce5d36bcccc5533c89dea45909483f45a",
     "Date": "2023-03-08T21:14:44.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.13",
     "Commit": "eb664b4e9f71945ef3faa802af779e1630fedb8f",
     "Date": "2023-03-25T09:24:10.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.14",
     "Commit": "8517026415e75a8eec567774072cbbbbb52376c1",
     "Date": "2023-04-21T13:15:29.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.15",
     "Commit": "2e5319ff360cd2d6dab638a7e0370fe959e4201b",
     "Date": "2023-07-20T22:24:40.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.16",
     "Commit": "cde095db6c75827fe4bd237039574aad373ad96b",
     "Date": "2023-08-15T18:11:16.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.17",
     "Commit": "edc528457f109c188a909ffa07ad73539d3cbf02",
     "Date": "2023-09-06T15:37:41.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.18",
     "Commit": "100ca72b9179366d91089fd929f6c210f697031a",
     "Date": "2023-09-13T18:14:23.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.19",
     "Commit": "2589c3fd46925f5d57e4ec79233cd1bd0f5d0c09",
     "Date": "2023-09-22T16:22:03.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.20",
     "Commit": "4ed0b23c9c99868ab4d2d28e8ff244687f7b3144",
     "Date": "2023-10-13T00:45:38.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.21",
     "Commit": "3870c29b158b75ca5e48e0eebd6b5c3a7994a000",
     "Date": "2023-11-06T20:52:28.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.22",
     "Commit": "24893faf75d84b2b885f3f7aeb9d5a3c056fa7be",
     "Date": "2023-12-01T23:19:05.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.23",
     "Commit": "27c3eaeb4964bd5f18d8488e354abde1a4383e49",
     "Date": "2023-12-28T00:36:12.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.24",
     "Commit": "c5c55092dd61b9eb15d6bbfd0f02c04c593450e7",
     "Date": "2024-01-27T03:43:28.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.25",
     "Commit": "d93a99e3351db82573d765ce4f5e84714c277518",
     "Date": "2024-02-16T01:00:29.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.26",
     "Commit": "b3b63bbdc14dc377d2de6b78e5844fec1564f95d",
     "Date": "2024-03-08T14:33:22.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.27",
     "Commit": "efc6bd553b61dea0ae8c0436695e8d2539bf03f9",
     "Date": "2024-03-31T19:24:45.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.28",
     "Commit": "38d31da77a72619cf7ec5d479338a48274cc7446",
     "Date": "2024-04-21T03:29:55.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.29",
     "Commit": "af69dd4397b6dc1bf23ba0fd0bf429fcba6454f6",
     "Date": "2024-05-04T02:45:54.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.30",
     "Commit": "fab354add5a257a8121a4a7f1ff6b1b9fa9a9073",
     "Date": "2024-05-28T00:09:39.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.31",
     "Commit": "8f19c751dc296cedb9a921badb7a02a8c0cb1aeb",
     "Date": "2024-06-18T00:59:04.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.32",
     "Commit": "35cfcf5d15981b99e8f31a2195641f035dd516c3",
     "Date": "2024-07-01T01:02:10.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.33",
     "Commit": "cb164927417f22811c74cd8678ed4a5ab7cb80ba",
     "Date": "2024-07-07T00:07:17.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.34",
     "Commit": "1fa2a372a88c26369dcac2ce476166531df74a77",
     "Date": "2024-07-30T15:18:28.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.35",
     "Commit": "8d08b34e22a08e58db8341839c4e18ee06c516c5",
     "Date": "2024-08-14T05:15:04.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.36",
     "Commit": "87d881071fe514936bb17029e96761141287d2be",
     "Date": "2024-09-06T16:18:28.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.37",
     "Commit": "21e5ce0e977fe012e0cee4e6fcfe704b47b00774",
     "Date": "2024-10-05T16:58:54.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.38",
     "Commit": "d321984b75fccdb76239529e8aadcf7f80b0e35a",
     "Date": "2024-10-21T19:01:59.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.39",
     "Commit": "056963e48fa8d3f89556239c22d6ac843d3c8a5b",
     "Date": "2024-10-31T07:53:49.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.40",
     "Commit": "66c4751742d2ca810033b289fc57ab4f83cfc833",
     "Date": "2024-11-17T04:31:14.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.41",
     "Commit": "5b974c298d4ed551d3ad2c061ad7b8280d137c7e",
     "Date": "2024-12-01T00:18:04.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.42",
     "Commit": "ef580cd3dd0e5223c2be503342dc29e128be866e",
     "Date": "2024-12-31T00:23:39.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.43",
     "Commit": "11406d9d6f3baa999b77fbd09f36c67749c31699",
     "Date": "2025-01-14T10:32:35.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.44",
     "Commit": "28c6f2e9c045372d50217919bf5768b7fbbe0294",
     "Date": "2025-01-25T00:49:01.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.45",
     "Commit": "8e29c4d7d21db3ab2c7a88c384626e95ef789f61",
     "Date": "2025-02-12T16:00:55.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.46",
     "Commit": "207f3be7b58b2a2b9f0a066b5b6ef18782b8b517",
     "Date": "2025-03-07T16:45:06.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.47",
     "Commit": "a03a90470d6fca9a5a3db747ba3f3e4a465b5fe7",
     "Date": "2025-04-11T16:56:37.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.48",
     "Commit": "b8b08b02dbbc0c05e7129e2f306c636c5b8ec04f",
     "Date": "2025-05-01T01:25:21.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.49",
     "Commit": "4a967f7a633d3c98184806650607b1746020a6a8",
     "Date": "2025-05-08T17:38:20.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.50",
     "Commit": "e78c346a6b5bf8a2cee97987000e11c8ce9968f3",
     "Date": "2025-06-10T18:10:28.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.51",
     "Commit": "bb474a201baa798784d696d2d9d762a9d2807f96",
     "Date": "2025-07-02T00:08:49.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.52",
     "Commit": "4269f54e16b9cf564efc2db5bcd29743a2eec6ee",
     "Date": "2025-08-06T16:41:39.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.53",
     "Commit": "bdec6af5d70dd51dd8ee9c0565a8a81deb9d169b",
     "Date": "2025-09-06T02:08:32.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.54",
     "Commit": "6dca40bdaac8b5e66c7a793727bf3f81e9711f70",
     "Date": "2025-09-10T17:50:03.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.55",
     "Commit": "7d257dcda5dd2c616c1146540ef51147c5bb2c69",
     "Date": "2025-09-19T15:54:24.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.56",
     "Commit": "8fbaf8441a79214bd00a1f19ab0bbcc91cd04e52",
     "Date": "2025-10-15T14:58:24.0000000\u002B03:00",
-    "Source": "derived-from-commit-data"
+    "Source": "derived-from-commit-data",
+    "Comment": null
   },
   {
     "Tag": "v1.8.56.1",
     "Commit": "4f4df7c6436085391e0b6d74cc7a54cf274c7edf",
+    "Date": "2025-10-15T22:49:33.0000000\u002B03:00",
     "Source": "manual",
     "Comment": "v1.8.56 with compilation fixes from the TDLib repository."
   }
