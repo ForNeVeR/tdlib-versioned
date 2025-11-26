@@ -4,7 +4,7 @@
 
 #r "nuget: MedallionShell, 1.6.2"
 #r "nuget: Fenrir.Git, 1.1.0"
-#r "nuget: TruePath.SystemIo, 1.10.0"
+#r "nuget: TruePath.SystemIo, 1.11.0"
 
 open System
 open System.Collections.Generic
