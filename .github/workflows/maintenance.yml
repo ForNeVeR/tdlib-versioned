@@ -40,7 +40,7 @@ jobs:
       run: dotnet fsi ./scripts/extract-metadata.fsx
     - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
       name: Create a pull request
-      uses: peter-evans/create-pull-request@v7
+      uses: peter-evans/create-pull-request@v8
       with:
         author: TdLibVersioned automation <friedrich@fornever.me>
         body: ${{ steps.extract-metadata.outputs.body }}
