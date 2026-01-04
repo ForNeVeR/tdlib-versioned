@@ -845,5 +845,12 @@
     "Date": "2025-12-19T17:09:10.0000000\u002B03:00",
     "Source": "derived-from-commit-data",
     "Comment": null
+  },
+  {
+    "Tag": "v1.8.60",
+    "Commit": "0da5c72f8365fb4857096e716d53175ddbdf5a15",
+    "Date": "2026-01-03T23:22:27.0000000\u002B03:00",
+    "Source": "derived-from-commit-data",
+    "Comment": null
   }
 ]
