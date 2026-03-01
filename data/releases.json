@@ -863,7 +863,15 @@
   {
     "Tag": "v1.8.61.1",
     "Commit": "6d509061574d684117f74133056aa43df89022fc",
+    "Date": "2026-02-07T11:38:50.0000000\u002B03:00",
     "Source": "manual",
     "Comment": "v1.8.61 with a compilation fix."
+  },
+  {
+    "Tag": "v1.8.62",
+    "Commit": "e597838871547131ef92332fca601f5effba4e8a",
+    "Date": "2026-03-01T02:44:05.0000000\u002B03:00",
+    "Source": "derived-from-commit-data",
+    "Comment": null
   }
 ]
