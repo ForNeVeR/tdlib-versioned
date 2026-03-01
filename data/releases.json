@@ -859,5 +859,11 @@
     "Date": "2026-02-07T03:12:10.0000000\u002B03:00",
     "Source": "derived-from-commit-data",
     "Comment": null
+  },
+  {
+    "Tag": "v1.8.61.1",
+    "Commit": "6d509061574d684117f74133056aa43df89022fc",
+    "Source": "manual",
+    "Comment": "v1.8.61 with a compilation fix."
   }
 ]
