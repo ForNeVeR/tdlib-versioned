@@ -56,7 +56,7 @@ let workflows = [
 
         linuxSourceJob "check-encoding" [
             powerShell "Verify encoding"
-                "Install-Module VerifyEncoding -Repository PSGallery -RequiredVersion 2.2.1 -Force && Test-Encoding"
+                "Install-Module VerifyEncoding -Repository PSGallery -RequiredVersion 2.3.0 -Force && Test-Encoding"
         ]
 
         linuxSourceJob "check-licenses" [
