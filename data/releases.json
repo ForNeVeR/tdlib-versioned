@@ -891,6 +891,7 @@
   {
     "Tag": "v1.8.64.1",
     "Commit": "49b3bcbb6bfebf2ed44dd9f25102d2e1a94a58c4",
+    "Date": "2026-05-08T03:14:29.0000000\u002B03:00",
     "Source": "manual",
     "Comment": "v1.8.64 with a compilation fix."
   }
