@@ -894,5 +894,12 @@
     "Date": "2026-05-08T03:14:29.0000000\u002B03:00",
     "Source": "manual",
     "Comment": "v1.8.64 with a compilation fix."
+  },
+  {
+    "Tag": "v1.8.65",
+    "Commit": "a8f21f5230172634becc1739050ef23ecd6ea291",
+    "Date": "2026-06-11T15:29:20.0000000\u002B03:00",
+    "Source": "derived-from-commit-data",
+    "Comment": null
   }
 ]
