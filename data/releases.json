@@ -901,5 +901,12 @@
     "Date": "2026-06-11T15:29:20.0000000\u002B03:00",
     "Source": "derived-from-commit-data",
     "Comment": null
+  },
+  {
+    "Tag": "v1.8.66",
+    "Commit": "a9966eb3704a3351568c28013fed67d797c17828",
+    "Date": "2026-07-14T14:54:57.0000000\u002B03:00",
+    "Source": "derived-from-commit-data",
+    "Comment": null
   }
 ]
