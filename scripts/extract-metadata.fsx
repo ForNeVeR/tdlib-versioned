@@ -73,7 +73,15 @@ let guessTags() = task {
     }
 
 
-    let branch = Refs.ReadRefs dotGit |> Seq.filter(fun x -> x.Name = "refs/remotes/origin/tdlib") |> Seq.exactlyOne
+    let refName = "refs/remotes/origin/tdlib"
+    let refs = Refs.ReadRefs dotGit |> Seq.filter(fun x -> x.Name = refName) |> Seq.toArray
+    let branch =
+        match refs with
+        | [| |] -> failwithf $"Cannot find ref with name \"{refName}\"."
+        | [| ref |] -> ref
+        | _ ->
+            let allRefs = String.Join(", ", refs)
+            failwithf $"Multiple refs with name \"{refName}\": {allRefs}."
     let headCommitHash = branch.CommitObjectId
     let! headCommit = Commits.ReadCommit(index, dotGit, headCommitHash)
 
