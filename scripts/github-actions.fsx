@@ -28,7 +28,7 @@ let workflows = [
 
     let linuxSourceJob name body =
         job name [
-            runsOn "ubuntu-24.04"
+            runsOn "ubuntu-26.04"
             step(
                 name = "Check out the sources",
                 usesSpec = Auto "actions/checkout"
@@ -79,7 +79,7 @@ let workflows = [
         ]
 
         job "push-tags" [
-            runsOn "ubuntu-24.04"
+            runsOn "ubuntu-26.04"
             jobPermission(PermissionKind.Contents, AccessKind.Write)
             step(
                 name = "Check out the sources",
@@ -103,7 +103,7 @@ let workflows = [
         onSchedule(cron = "0 0 * * *") // every day
 
         job "clone-upstream" [
-            runsOn "ubuntu-24.04"
+            runsOn "ubuntu-26.04"
 
             jobPermission(PermissionKind.Contents, AccessKind.Write)
             jobPermission(PermissionKind.PullRequests, AccessKind.Write)
