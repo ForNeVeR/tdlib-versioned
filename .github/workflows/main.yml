@@ -16,7 +16,7 @@ on:
   workflow_dispatch: 
 jobs:
   check-encoding:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
     - name: Check out the sources
       uses: actions/checkout@v7
@@ -24,14 +24,14 @@ jobs:
       shell: pwsh
       run: Install-Module VerifyEncoding -Repository PSGallery -RequiredVersion 2.3.0 -Force && Test-Encoding
   check-licenses:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
     - name: Check out the sources
       uses: actions/checkout@v7
     - name: REUSE license check
       uses: fsfe/reuse-action@v6
   check-workflows:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     env:
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
       DOTNET_NOLOGO: 1
@@ -47,7 +47,7 @@ jobs:
   push-tags:
     permissions:
       contents: write
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
     - name: Check out the sources
       uses: actions/checkout@v7
